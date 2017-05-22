@@ -52,3 +52,242 @@ Request URL: /ecitem_review/phpMyAdmin/index.php
 Stack Trace:
 #0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-05-22 13:38:55 Error: [MissingActionException] Action AppController::view() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'view',
+)
+Request URL: /ecitem_review/app/view
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 13:39:24 Error: [MissingActionException] Action AppController::webroot() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'webroot',
+)
+Request URL: /ecitem_review/app/webroot/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 13:39:42 Error: [MissingActionException] Action AppController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'index',
+)
+Request URL: /ecitem_review/app/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 14:01:06 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Users/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 14:02:49 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 14:13:03 Error: [MissingViewException] View file "App/view.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'App/view.ctp',
+)
+Request URL: /ecitem_review/app/View/Articles/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-22 15:01:31 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 15:04:08 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 15:04:17 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/index.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 15:04:29 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/view.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 15:04:38 Error: [MissingActionException] Action AppController::View() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'View',
+)
+Request URL: /ecitem_review/app/View/Articles/index.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-22 15:14:47 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/User
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 15:16:51 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Articles
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 15:52:44 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Articles
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 15:52:49 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Articles
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 15:53:05 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Articles/index.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 15:53:13 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Articles
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:02:49 Error: [MissingControllerException] Controller class ProductController could not be found.
+Exception Attributes: array (
+  'class' => 'ProductController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/Product
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:05:51 Error: [MissingControllerException] Controller class CompaniesController could not be found.
+Exception Attributes: array (
+  'class' => 'CompaniesController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/companies/add
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:12:09 Error: [MissingControllerException] Controller class CnpanesController could not be found.
+Exception Attributes: array (
+  'class' => 'CnpanesController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/Cnpanes
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:12:14 Error: [MissingControllerException] Controller class CanpanesController could not be found.
+Exception Attributes: array (
+  'class' => 'CanpanesController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/Canpanes
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:13:19 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Companies
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:18:04 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-22 17:18:10 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
