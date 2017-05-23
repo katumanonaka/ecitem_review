@@ -37,7 +37,7 @@
 		<th><?php echo __('Id'); ?></th>
 		<th><?php echo __('Product Name'); ?></th>
 		<th><?php echo __('Company Id'); ?></th>
-		<th><?php echo __('Category'); ?></th>
+		<th><?php echo __('Category Id'); ?></th>
 		<th><?php echo __('Price'); ?></th>
 		<th><?php echo __('Size'); ?></th>
 		<th><?php echo __('Use'); ?></th>
@@ -49,7 +49,7 @@
 			<td><?php echo $product['id']; ?></td>
 			<td><?php echo $product['product_name']; ?></td>
 			<td><?php echo $product['company_id']; ?></td>
-			<td><?php echo $product['category']; ?></td>
+			<td><?php echo $product['category_id']; ?></td>
 			<td><?php echo $product['price']; ?></td>
 			<td><?php echo $product['size']; ?></td>
 			<td><?php echo $product['use']; ?></td>

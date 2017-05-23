@@ -12,4 +12,16 @@ class ArticlesController extends AppController {
  */
 	public $scaffold;
 
+	// public function index() {
+	//
+	// }
+
+	public function add()
+	{
+
+	}
+
+	public function edit() {
+
+	}
 }

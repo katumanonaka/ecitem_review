@@ -291,3 +291,375 @@ Request URL: /ecitem_review/ecitem_review/Products
 Stack Trace:
 #0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-05-23 12:18:14 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [/var/www/html/ecitem_review/app/Controller/AppController.php, line 38]
+2017-05-23 12:18:14 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /ecitem_review/Articles/add
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 38)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 38, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 38, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-23 14:47:40 Error: [MissingControllerException] Controller class A.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'A.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/a.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:48:13 Error: [MissingControllerException] Controller class Ab.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Ab.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ab.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:48:20 Error: [MissingControllerException] Controller class A.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'A.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/a.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:48:42 Error: [MissingControllerException] Controller class A.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'A.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/a.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:49:13 Error: [MissingControllerException] Controller class A.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'A.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/a.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:50:07 Error: [MissingControllerException] Controller class A.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'A.phpController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/a.php
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 14:57:32 Error: [MissingActionException] Action ArticlesController::index.ctp() could not be found.
+Exception Attributes: array (
+  'controller' => 'ArticlesController',
+  'action' => 'index.ctp',
+)
+Request URL: /ecitem_review/Articles/index.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ArticlesController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#4 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#5 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-05-23 14:58:00 Error: [MissingActionException] Action ArticlesController::index.ctp() could not be found.
+Exception Attributes: array (
+  'controller' => 'ArticlesController',
+  'action' => 'index.ctp',
+)
+Request URL: /ecitem_review/Articles/index.ctp
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(152): Scaffold->_scaffold(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ArticlesController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#4 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#5 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-05-23 15:08:56 Error: Fatal Error (4): syntax error, unexpected 'endforeach' (T_ENDFOREACH) in [/var/www/html/ecitem_review/app/View/Articles/index.ctp, line 40]
+2017-05-23 15:08:56 Error: [FatalErrorException] syntax error, unexpected 'endforeach' (T_ENDFOREACH)
+Request URL: /ecitem_review/Articles/
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 40)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 40, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 40, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-23 15:23:48 Error: [MissingActionException] Action ArticlesController::add() could not be found.
+Exception Attributes: array (
+  'controller' => 'ArticlesController',
+  'action' => 'add',
+)
+Request URL: /ecitem_review/Articles/add
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-23 17:21:06 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:21:20 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:22:36 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:23:41 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:29:57 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:32:52 Error: [MissingControllerException] Controller class ProductssController could not be found.
+Exception Attributes: array (
+  'class' => 'ProductssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/Productss
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 17:33:02 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:41:20 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:43:51 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:43:52 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:44:11 Error: [MissingTableException] Table categories for model Category was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'categories',
+  'class' => 'Category',
+  'ds' => 'default',
+)
+Request URL: /ecitem_review/Products/add
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(3667): Model->setSource('categories')
+#1 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1394): Model->getDataSource()
+#2 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1490): Model->schema()
+#3 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(1477): Model->hasField('title', false)
+#4 /var/www/html/ecitem_review/lib/Cake/Model/Model.php(914): Model->hasField(Array)
+#5 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(429): Model->__get('displayField')
+#6 /var/www/html/ecitem_review/lib/Cake/Controller/Scaffold.php(136): Scaffold->_associations()
+#7 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(536): Scaffold->__construct(Object(ProductsController), Object(CakeRequest))
+#8 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(495): Controller->_getScaffold(Object(CakeRequest))
+#9 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#11 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2017-05-23 17:45:49 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Companies
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 17:46:01 Error: [MissingControllerException] Controller class EcitemReviewController could not be found.
+Exception Attributes: array (
+  'class' => 'EcitemReviewController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/ecitem_review/Companies
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-23 17:55:09 Error: [MissingActionException] Action ProductsController::add() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => 'add',
+)
+Request URL: /ecitem_review/Products/add
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2017-05-23 17:55:14 Error: [MissingActionException] Action ProductsController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'ProductsController',
+  'action' => 'index',
+)
+Request URL: /ecitem_review/Products
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest))
+#2 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
