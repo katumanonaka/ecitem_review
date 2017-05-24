@@ -13,6 +13,8 @@ class Article extends AppModel {
  *
  * @var array
  */
+    public $hasMany = 'Comment';
+
 	public $validate = array(
 		'user_id' => array(
 			'numeric' => array(
@@ -54,16 +56,16 @@ class Article extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		// 'great' => array(
-		// 	'numeric' => array(
-		// 		'rule' => array('numeric'),
-		// 		//'message' => 'Your custom message here',
-		// 		//'allowEmpty' => false,
-		// 		//'required' => false,
-		// 		//'last' => false, // Stop validation after this rule
-		// 		//'on' => 'create', // Limit validation to 'create' or 'update' operations
-		// 	),
-		// ),
+		'great' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -78,7 +80,7 @@ class Article extends AppModel {
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
-			'fields' => array('id'),
+			'fields' => '',
 			'order' => ''
 		),
 		'Product' => array(

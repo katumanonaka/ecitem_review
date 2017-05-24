@@ -13,7 +13,7 @@
 		</dd>
 		<dt><?php echo __('Product'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($article['Product']['id'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
+			<?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>

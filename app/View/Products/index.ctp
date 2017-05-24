@@ -4,12 +4,12 @@
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('company_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('category'); ?></th>
+			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('price'); ?></th>
 			<th><?php echo $this->Paginator->sort('size'); ?></th>
-			<th><?php echo $this->Paginator->sort('use'); ?></th>
+			<th><?php echo $this->Paginator->sort('effect'); ?></th>
 			<th><?php echo $this->Paginator->sort('how_to_use'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -18,14 +18,16 @@
 	<?php foreach ($products as $product): ?>
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($product['Company']['id'], array('controller' => 'companies', 'action' => 'view', $product['Company']['id'])); ?>
+			<?php echo $this->Html->link($product['Company']['name'], array('controller' => 'companies', 'action' => 'view', $product['Company']['id'])); ?>
 		</td>
-		<td><?php echo h($product['Product']['category']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
+		</td>
 		<td><?php echo h($product['Product']['price']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['size']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['use']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['effect']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['how_to_use']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>
@@ -56,6 +58,8 @@
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Companies'), array('controller' => 'companies', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Company'), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
 	</ul>

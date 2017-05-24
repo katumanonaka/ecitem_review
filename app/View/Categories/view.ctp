@@ -1,19 +1,14 @@
-<div class="companies view">
-<h2><?php echo __('Company'); ?></h2>
+<div class="categories view">
+<h2><?php echo __('Category'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
-			<?php echo h($company['Company']['id']); ?>
+			<?php echo h($category['Category']['id']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($company['Company']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Url'); ?></dt>
-		<dd>
-			<?php echo h($company['Company']['url']); ?>
+			<?php echo h($category['Category']['name']); ?>
 			&nbsp;
 		</dd>
 	</dl>
@@ -21,17 +16,17 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Company'), array('action' => 'edit', $company['Company']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Company'), array('action' => 'delete', $company['Company']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $company['Company']['id']))); ?> </li>
-		<li><?php echo $this->Html->link(__('List Companies'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Company'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Category'), array('action' => 'edit', $category['Category']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Category'), array('action' => 'delete', $category['Category']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $category['Category']['id']))); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
 	<h3><?php echo __('Related Products'); ?></h3>
-	<?php if (!empty($company['Product'])): ?>
+	<?php if (!empty($category['Product'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -44,7 +39,7 @@
 		<th><?php echo __('How To Use'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
-	<?php foreach ($company['Product'] as $product): ?>
+	<?php foreach ($category['Product'] as $product): ?>
 		<tr>
 			<td><?php echo $product['id']; ?></td>
 			<td><?php echo $product['name']; ?></td>

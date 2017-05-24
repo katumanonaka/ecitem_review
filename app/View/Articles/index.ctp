@@ -23,7 +23,7 @@
 			<?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
 		</td>
 		<td>
-			<?php echo $this->Html->link($article['Product']['id'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
+			<?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
 		</td>
 		<td><?php echo h($article['Article']['image']); ?>&nbsp;</td>
 		<td><?php echo h($article['Article']['review']); ?>&nbsp;</td>

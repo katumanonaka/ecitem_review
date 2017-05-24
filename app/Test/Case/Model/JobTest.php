@@ -1,10 +1,10 @@
 <?php
-App::uses('Article', 'Model');
+App::uses('Job', 'Model');
 
 /**
- * Article Test Case
+ * Job Test Case
  */
-class ArticleTest extends CakeTestCase {
+class JobTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -12,13 +12,13 @@ class ArticleTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.article',
-		'app.user',
 		'app.job',
-		'app.comment',
+		'app.user',
+		'app.article',
 		'app.product',
 		'app.company',
-		'app.category'
+		'app.category',
+		'app.comment'
 	);
 
 /**
@@ -28,7 +28,7 @@ class ArticleTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Article = ClassRegistry::init('Article');
+		$this->Job = ClassRegistry::init('Job');
 	}
 
 /**
@@ -37,7 +37,7 @@ class ArticleTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Article);
+		unset($this->Job);
 
 		parent::tearDown();
 	}

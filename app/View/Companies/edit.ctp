@@ -4,7 +4,7 @@
 		<legend><?php echo __('Edit Company'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('company_name');
+		echo $this->Form->input('name');
 		echo $this->Form->input('url');
 	?>
 	</fieldset>

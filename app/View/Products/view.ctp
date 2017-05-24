@@ -6,19 +6,19 @@
 			<?php echo h($product['Product']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Product Name'); ?></dt>
+		<dt><?php echo __('Name'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['product_name']); ?>
+			<?php echo h($product['Product']['name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Company'); ?></dt>
 		<dd>
-			<?php echo $this->Html->link($product['Company']['id'], array('controller' => 'companies', 'action' => 'view', $product['Company']['id'])); ?>
+			<?php echo $this->Html->link($product['Company']['name'], array('controller' => 'companies', 'action' => 'view', $product['Company']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Category'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['category']); ?>
+			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Price'); ?></dt>
@@ -31,9 +31,9 @@
 			<?php echo h($product['Product']['size']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Use'); ?></dt>
+		<dt><?php echo __('Effect'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['use']); ?>
+			<?php echo h($product['Product']['effect']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('How To Use'); ?></dt>
@@ -52,6 +52,8 @@
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Companies'), array('controller' => 'companies', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Company'), array('controller' => 'companies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
 	</ul>
