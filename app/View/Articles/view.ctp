@@ -47,6 +47,27 @@
 			&nbsp;
 		</dd>
 	</dl>
+<?php //debug($article);?>
+    <h2>Comments</h2>
+    <!-- コメントテーブルからコメント一覧を表示する -->
+    <?php foreach($article['Comment'] as $comment):?>
+        <li id="comment_<?php echo h($comment['id']); ?>">
+            <?php echo h($comment['content']) ?>
+            <?php //debug($comment);?>
+            <?php //$this->comment->delete($this->data['comment']['id']); ?>
+            <?php echo $this->Form->postLink(__('Delete'), array('controller'=>'comments' ,'action' => 'delete', $comment['id']), array('confirm' => __('Are you sure you want to delete # %s?', $comment['id']))); ?>
+        </li>
+    <?php endforeach; ?>
+
+    <h2>Add Comment</h2>
+    <!-- コメントを追加する -->
+    <?php
+    echo $this->Form->create('Comment', array('action'=>'add'));
+    echo $this->Form->input('content', array('rows'=>3));
+    echo $this->Form->input('Comment.article_id', array('type'=>'hidden' , 'value'=>$article['Article']['id']));
+    echo $this->Form->end('コメントを送る');
+     ?>
+
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
@@ -61,3 +82,16 @@
 		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<script>
+$(function() {
+    $('a.delete').click(function(e) {
+        if (confirm('sure?')) {
+            $.post('/ecitem_review/comments/delete/'+$(this).data('comment-id'), {}, function(res) {
+                $('#comment_'+res.id).fadeOut();
+            }, "json");
+        }
+        return false;
+    });
+});
+</script>

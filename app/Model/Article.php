@@ -13,7 +13,23 @@ class Article extends AppModel {
  *
  * @var array
  */
-    public $hasMany = 'Comment';
+
+    //コメントテーブルから外部キーで参照されている
+    public $hasMany = array(
+        'Comment' => array(
+            'className' => 'Comment',
+            'foreignKey' => 'article_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );
 
 	public $validate = array(
 		'user_id' => array(
