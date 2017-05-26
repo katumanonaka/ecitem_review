@@ -1329,3 +1329,428 @@ Stack Trace:
 #3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
 #4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2017-05-26 10:13:27 Error: [NotFoundException] Invalid article
+Request URL: /ecitem_review/articles/view/50
+Stack Trace:
+#0 [internal function]: ArticlesController->view('50')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 10:15:27 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/50
+Stack Trace:
+#0 [internal function]: CommentsController->delete('50')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:33:11 Error: [NotFoundException] Invalid article
+Request URL: /ecitem_review/articles/view/63
+Stack Trace:
+#0 [internal function]: ArticlesController->view('63')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:35:24 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/62
+Stack Trace:
+#0 [internal function]: CommentsController->delete('62')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:37:31 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/62
+Stack Trace:
+#0 [internal function]: CommentsController->delete('62')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:46:46 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/65
+Stack Trace:
+#0 [internal function]: CommentsController->delete('65')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:47:54 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 43755712 bytes) in [/var/www/html/ecitem_review/lib/Cake/Utility/Debugger.php, line 603]
+2017-05-26 11:47:54 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 43755712 bytes)
+Request URL: /ecitem_review/comments/delete/65
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/e...', 603)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/e...', 603, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/e...', 603, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 11:49:07 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 43755712 bytes) in [/var/www/html/ecitem_review/lib/Cake/Utility/Debugger.php, line 603]
+2017-05-26 11:49:07 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 43755712 bytes)
+Request URL: /ecitem_review/comments/delete/65
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/e...', 603)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/e...', 603, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/e...', 603, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 11:49:27 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/65
+Stack Trace:
+#0 [internal function]: CommentsController->delete('65')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:54:10 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/70
+Stack Trace:
+#0 [internal function]: CommentsController->delete('70')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 11:55:54 Error: [NotFoundException] Invalid comment
+Request URL: /ecitem_review/comments/delete/70
+Stack Trace:
+#0 [internal function]: CommentsController->delete('70')
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CommentsController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 12:01:25 Error: [NotFoundException] Invalid article
+Request URL: /ecitem_review/articles/view
+Stack Trace:
+#0 [internal function]: ArticlesController->view()
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(ArticlesController), Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(ArticlesController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 12:01:46 Error: Fatal Error (1): Cannot use object of type CommentsController as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:01:46 Error: [FatalErrorException] Cannot use object of type CommentsController as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:02:29 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:02:29 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:02:44 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:02:44 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:13:12 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:13:12 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:13:25 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:13:25 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:14:52 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/var/www/html/ecitem_review/app/View/Articles/view.ctp, line 58]
+2017-05-26 12:14:52 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /ecitem_review/articles/view/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 58)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:14:56 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [/var/www/html/ecitem_review/app/View/Articles/view.ctp, line 58]
+2017-05-26 12:14:56 Error: [FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /ecitem_review/articles/view/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 58)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:15:32 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/html/ecitem_review/app/View/Articles/view.ctp, line 58]
+2017-05-26 12:15:32 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /ecitem_review/articles/view/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 58)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:15:41 Error: Fatal Error (4): syntax error, unexpected ')' in [/var/www/html/ecitem_review/app/View/Articles/view.ctp, line 58]
+2017-05-26 12:15:41 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /ecitem_review/articles/view/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 58)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 58, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:16:05 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 105]
+2017-05-26 12:16:05 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 105, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:20:26 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 115]
+2017-05-26 12:20:26 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 115)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 115, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 115, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:20:48 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 115]
+2017-05-26 12:20:48 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/67
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 115)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 115, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 115, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:25:01 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 115]
+2017-05-26 12:25:01 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/66
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 115)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 115, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 115, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:32:34 Error: Fatal Error (1): Cannot use object of type Comment as array in [/var/www/html/ecitem_review/app/Controller/CommentsController.php, line 113]
+2017-05-26 12:32:34 Error: [FatalErrorException] Cannot use object of type Comment as array
+Request URL: /ecitem_review/comments/delete/65/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/var/www/html/e...', 113)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/var/www/html/e...', 113, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/var/www/html/e...', 113, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 12:33:44 Error: [MissingViewException] View file "Comments/delete.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Comments/delete.ctp',
+)
+Request URL: /ecitem_review/comments/delete/64/14
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/ecitem_review/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/ecitem_review/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CommentsController), Object(CakeRequest))
+#4 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2017-05-26 12:55:20 Error: Fatal Error (4): syntax error, unexpected '<' in [/var/www/html/ecitem_review/app/View/Articles/view.ctp, line 73]
+2017-05-26 12:55:20 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /ecitem_review/articles/view/13
+Stack Trace:
+#0 /var/www/html/ecitem_review/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/e...', 73)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/e...', 73, Array)
+#2 /var/www/html/ecitem_review/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/e...', 73, Array)
+#3 /var/www/html/ecitem_review/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-05-26 16:25:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:37:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:37:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:38:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:39:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:39:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:41:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:41:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:41:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:43:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:43:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:43:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:54:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:54:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:54:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:54:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-05-26 16:54:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ecitem_review/css/bootstrap-responsive.min.css
+Stack Trace:
+#0 /var/www/html/ecitem_review/app/webroot/index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

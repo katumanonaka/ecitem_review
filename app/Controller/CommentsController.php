@@ -52,7 +52,8 @@ class CommentsController extends AppController {
 			$this->Comment->create();
 			if ($this->Comment->save($this->request->data)) {
 				$this->Flash->success(__('The comment has been saved.'));
-				return $this->redirect(array('controller'=>'articles' , 'action' => 'view' , $this->data['Comment']['article_id']));
+				return $this->redirect(array('controller'=>'articles' ,
+                'action' => 'view' , $this->data['Comment']['article_id']));
 			} else {
 				$this->Flash->error(__('The comment could not be saved. Please, try again.'));
 			}
@@ -96,10 +97,9 @@ class CommentsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function delete($id = null, $article_id = null) {
 		$this->Comment->id = $id;
-        //$this->Comment->create();
-        $temp = $id;
+
 		if (!$this->Comment->exists()) {
 			throw new NotFoundException(__('Invalid comment'));
 		}
@@ -109,9 +109,12 @@ class CommentsController extends AppController {
 		} else {
 			$this->Flash->error(__('The comment could not be deleted. Please, try again.'));
 		}
-		//return $this->redirect(array('controller'=>'article'  , 'action' => 'view' , $this->data['Comment']['article_id']));
-
-        return $this->redirect(array('controller'=>'articles' , 'action' => 'view' ,$temp));//$this->data['Comment']['article_id']));
+        //削除を行ったviewに遷移する
+        return $this->redirect(array(
+            'controller'=>'articles' ,
+            'action' => 'view' ,
+            $article_id
+            ));//$this->data['Comment']['article_id']));
         //$this->data['Comment']['article_id']
 	}
 }
