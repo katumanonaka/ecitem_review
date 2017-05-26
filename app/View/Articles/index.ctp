@@ -1,42 +1,55 @@
 <div class="articles index">
+
 	<h2><?php echo __('Articles'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
-	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('product_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('image'); ?></th>
-			<th><?php echo $this->Paginator->sort('review'); ?></th>
-			<th><?php echo $this->Paginator->sort('evaluation'); ?></th>
-			<th><?php echo $this->Paginator->sort('great'); ?></th>
-			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	</thead>
+        <div class="container">
+            <table class="table">
+                <thead>
+                	<tr>
+                			<th><?php echo $this->Paginator->sort('id'); ?></th>
+                			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+                			<th><?php echo $this->Paginator->sort('product_id'); ?></th>
+                			<th><?php echo $this->Paginator->sort('image'); ?></th>
+                			<th><?php echo $this->Paginator->sort('review'); ?></th>
+                			<th><?php echo $this->Paginator->sort('evaluation'); ?></th>
+                			<th><?php echo $this->Paginator->sort('great'); ?></th>
+                			<th><?php echo $this->Paginator->sort('created'); ?></th>
+                			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+                			<th class="actions"><?php echo __('Actions'); ?></th>
+                	</tr>
+                </thead>
+            </table>
+        </div>
+
 	<tbody>
 	<?php foreach ($articles as $article): ?>
-	<tr>
-		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
-		</td>
-		<td><?php echo h($article['Article']['image']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['review']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['great']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
-		<td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $article['Article']['id']))); ?>
-		</td>
+        <div class="container">
+            <table class="table">
+            	<tr>
+            		<td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
+                    <td>
+                		<?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
+                	</td>
+            		<td>
+            			<?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
+            		</td>
+            		<td><?php echo h($article['Article']['image']); ?>&nbsp;</td>
+            		<td><?php echo h($article['Article']['review']); ?>&nbsp;</td>
+            		<td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
+            		<td><?php echo h($article['Article']['great']); ?>&nbsp;</td>
+            		<td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
+            		<td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
+
+            		<td class="actions">
+                        <button type="button" class="btn btn-success">
+            			<?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
+                        </button>
+            			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id'])); ?>
+            			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $article['Article']['id']))); ?>
+            		</td>
 	</tr>
+</table>
+</div>
 <?php endforeach; ?>
 	</tbody>
 	</table>

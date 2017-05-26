@@ -47,21 +47,31 @@
 			&nbsp;
 		</dd>
 	</dl>
-<?php //debug($article);?>
     <h2>Comments</h2>
     <!-- コメントテーブルからコメント一覧を表示する -->
     <?php foreach($article['Comment'] as $comment):?>
         <li id="comment_<?php echo h($comment['id']); ?>">
             <?php echo h($comment['content']) ?>
             <?php //debug($comment);?>
-            <?php //$this->comment->delete($this->data['comment']['id']); ?>
-            <?php echo $this->Form->postLink(__('Delete'), array('controller'=>'comments' ,'action' => 'delete', $comment['id']), array('confirm' => __('Are you sure you want to delete # %s?', $comment['id']))); ?>
+            <?php echo $this->Form->postLink(__('Delete'),
+                array(
+                    'controller'=>'comments' ,
+                    'action' => 'delete',
+                    $comment['id'],
+                    $article['Article']['id']
+                ),
+                array(
+                    'confirm' => __('Are you sure you want to delete # %s?', $comment['id'] )
+                )
+            ); ?>
         </li>
     <?php endforeach; ?>
 
     <h2>Add Comment</h2>
     <!-- コメントを追加する -->
     <?php
+    // エラー出力をしない
+    error_reporting(0);
     echo $this->Form->create('Comment', array('action'=>'add'));
     echo $this->Form->input('content', array('rows'=>3));
     echo $this->Form->input('Comment.article_id', array('type'=>'hidden' , 'value'=>$article['Article']['id']));
