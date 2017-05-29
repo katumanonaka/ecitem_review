@@ -48,13 +48,29 @@ class ArticlesController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
 			$this->Article->create();
-			if ($this->Article->save($this->request->data)) {
+            if ($this->Article->save($data, $validate = false)) {
 				$this->Flash->success(__('The article has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The article could not be saved. Please, try again.'));
+
+                //保存先のパスを保存
+                $path = "/var/www/html/ecitem_review/app/webroot/upimg/";
+
+                $img = $this->request->data('Article.image.tmp_name');
+
+                $name = $this->request->data('Article.image.name');
+
+                $uploadfile = $path . $name;
+                //画像のフォルダとファイル名を指定して保存
+                if(!move_uploaded_file($img,$uploadfile)){
+                    debug($uploadfile);
+                    return;
+                }
+
+                //return $this->redirect(array('action' => 'index'));
+
+            } else {
+                $this->Flash->error(__('The article could not be saved. Please, try again.'));
 			}
 		}
 		$users = $this->Article->User->find('list');
@@ -62,6 +78,21 @@ class ArticlesController extends AppController {
 		$this->set(compact('users', 'products'));
 	}
 
+    //画像のアップロードクラス
+    public function fileup(){
+      if ($this->request->is('post') || $this->request->is('put')) {
+        //画像の保存
+        if($this->Post->save($this->request->data)){
+          //画像保存先のパス
+          $path = IMAGES;
+          $image = $this->request->data['Post']['image'];
+          $this->Session->setFlash('画像を登録しました');
+          move_uploaded_file($image['tmp_name'], $path . DS . $image['name']);
+        }else{
+          $this->Session->setFlash('画像が登録できませんでした');
+        }
+      }
+    }
 /**
  * edit method
  *
