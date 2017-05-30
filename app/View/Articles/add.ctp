@@ -8,9 +8,10 @@
         echo $this->Form->input('user_id');
         echo $this->Form->input('product_id');
         //画像のアップロード
-        echo $this->Form->input('Article.image', array(
-            'label' => false,
-            'type' => 'file','multiple'));
+        //echo $this->Form->input('image');
+             echo $this->Form->input('image', array(
+                 'label' => false,
+                 'type' => 'file','multiple'));
 
         echo $this->Form->input('review');
         echo $this->Form->input('evaluation');

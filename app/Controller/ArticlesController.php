@@ -50,28 +50,43 @@ class ArticlesController extends AppController {
     public function add() {
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
-            if ($this->Article->save($data, $validate = false)) {
+            // if ($this->Article->save($data, $validate = false)) {
+
+            //入力されたファイルが画像ファイルかどうかチェック
+            $extension = $this->request->data('Article.image.type');
+            if($extension != "image/jpeg" && $extension != "image/jpg" && $extension != "image/gif" && $extension != "image/png") {
+                $this->Flash->error(__('画像ファイルを入れて下さい'));
+                return $this->redirect(array('action' => 'index'));
+            }
+
+            //保存先のパスを保存
+            $path = "/var/www/html/ecitem_review/app/webroot/upimg/";
+            $path = WWW_ROOT . "upimg/";
+
+            $img = $this->request->data('Article.image.tmp_name');
+
+            $name = $this->request->data('Article.image.name');
+
+            $this->request->data['Article']['image'] = $name;
+
+            if ($this->Article->save($this->request->data)) {
                 $this->Flash->success(__('The article has been saved.'));
 
-                //保存先のパスを保存
-                $path = "/var/www/html/ecitem_review/app/webroot/upimg/";
-                $path = WWW_ROOT . "upimg/";
+                //記事のidを取得する
+                $id = $this->Article->getLastInsertID();
 
-                $img = $this->request->data('Article.image.tmp_name');
+                $uploadfile = $path .  "$id.jpg";
 
-                $name = $this->request->data('Article.image.name');
-
-                $uploadfile = $path . $name;
                 //画像のフォルダとファイル名を指定して保存
-                if(!move_uploaded_file($img,$uploadfile)){
-                    debug($uploadfile);
+                if(!move_uploaded_file($img,$uploadfile)) {
+                    debug($id);
                     return;
                 }
 
                 return $this->redirect(array('action' => 'index'));
 
             } else {
-                $this->Flash->error(__('The article could not be saved. Please, try again.'));
+                $this->Flash->error(__('記事の追加でエラーThe article could not be saved. Please, try again.'));
             }
         }
         $users = $this->Article->User->find('list');

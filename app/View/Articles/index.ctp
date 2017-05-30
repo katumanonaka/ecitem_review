@@ -9,8 +9,8 @@
                             <th><?php echo $this->Paginator->sort('id'); ?></th>
                             <th><?php echo $this->Paginator->sort('user_id'); ?></th>
                             <th><?php echo $this->Paginator->sort('product_id'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('image'); ?></th>
-                            <th><?php echo $this->Paginator->sort('img_src'); ?></th>
+                            <th><?php echo $this->Paginator->sort('image'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('img_src'); ?></th>
                             <th><?php echo $this->Paginator->sort('review'); ?></th>
                             <th><?php echo $this->Paginator->sort('evaluation'); ?></th>
                             <th><?php echo $this->Paginator->sort('great'); ?></th>
