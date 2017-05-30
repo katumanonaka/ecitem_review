@@ -15,17 +15,17 @@ class ArticlesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array('Paginator', 'Session', 'Flash');
 
 /**
  * index method
  *
  * @return void
  */
-	public function index() {
-		$this->Article->recursive = 0;
-		$this->set('articles', $this->Paginator->paginate());
-	}
+    public function index() {
+        $this->Article->recursive = 0;
+        $this->set('articles', $this->Paginator->paginate());
+    }
 
 /**
  * view method
@@ -34,27 +34,28 @@ class ArticlesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->Article->exists($id)) {
-			throw new NotFoundException(__('Invalid article'));
-		}
-		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-		$this->set('article', $this->Article->find('first', $options));
-	}
+    public function view($id = null) {
+        if (!$this->Article->exists($id)) {
+            throw new NotFoundException(__('Invalid article'));
+        }
+        $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+        $this->set('article', $this->Article->find('first', $options));
+    }
 
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
-		if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
-			$this->Article->create();
+    public function add() {
+        if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
+            $this->Article->create();
             if ($this->Article->save($data, $validate = false)) {
-				$this->Flash->success(__('The article has been saved.'));
+                $this->Flash->success(__('The article has been saved.'));
 
                 //保存先のパスを保存
                 $path = "/var/www/html/ecitem_review/app/webroot/upimg/";
+                $path = WWW_ROOT . "upimg/";
 
                 $img = $this->request->data('Article.image.tmp_name');
 
@@ -67,16 +68,16 @@ class ArticlesController extends AppController {
                     return;
                 }
 
-                //return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'index'));
 
             } else {
                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
-			}
-		}
-		$users = $this->Article->User->find('list');
-		$products = $this->Article->Product->find('list');
-		$this->set(compact('users', 'products'));
-	}
+            }
+        }
+        $users = $this->Article->User->find('list');
+        $products = $this->Article->Product->find('list');
+        $this->set(compact('users', 'products'));
+    }
 
     //画像のアップロードクラス
     public function fileup(){
@@ -100,25 +101,25 @@ class ArticlesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		if (!$this->Article->exists($id)) {
-			throw new NotFoundException(__('Invalid article'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Article->save($this->request->data)) {
-				$this->Flash->success(__('The article has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The article could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-			$this->request->data = $this->Article->find('first', $options);
-		}
-		$users = $this->Article->User->find('list');
-		$products = $this->Article->Product->find('list');
-		$this->set(compact('users', 'products'));
-	}
+    public function edit($id = null) {
+        if (!$this->Article->exists($id)) {
+            throw new NotFoundException(__('Invalid article'));
+        }
+        if ($this->request->is(array('post', 'put'))) {
+            if ($this->Article->save($this->request->data)) {
+                $this->Flash->success(__('The article has been saved.'));
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Flash->error(__('The article could not be saved. Please, try again.'));
+            }
+        } else {
+            $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+            $this->request->data = $this->Article->find('first', $options);
+        }
+        $users = $this->Article->User->find('list');
+        $products = $this->Article->Product->find('list');
+        $this->set(compact('users', 'products'));
+    }
 
 /**
  * delete method
@@ -127,29 +128,29 @@ class ArticlesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
-		$this->Article->id = $id;
-		if (!$this->Article->exists()) {
-			throw new NotFoundException(__('Invalid article'));
-		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->Article->delete()) {
-			$this->Flash->success(__('The article has been deleted.'));
-		} else {
-			$this->Flash->error(__('The article could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
+    public function delete($id = null) {
+        $this->Article->id = $id;
+        if (!$this->Article->exists()) {
+            throw new NotFoundException(__('Invalid article'));
+        }
+        $this->request->allowMethod('post', 'delete');
+        if ($this->Article->delete()) {
+            $this->Flash->success(__('The article has been deleted.'));
+        } else {
+            $this->Flash->error(__('The article could not be deleted. Please, try again.'));
+        }
+        return $this->redirect(array('action' => 'index'));
+    }
 
 /**
  * admin_index method
  *
  * @return void
  */
-// 	public function admin_index() {
-// 		$this->Article->recursive = 0;
-// 		$this->set('articles', $this->Paginator->paginate());
-// 	}
+//     public function admin_index() {
+//         $this->Article->recursive = 0;
+//         $this->set('articles', $this->Paginator->paginate());
+//     }
 //
 // /**
 //  * admin_view method
@@ -158,33 +159,33 @@ class ArticlesController extends AppController {
 //  * @param string $id
 //  * @return void
 //  */
-// 	public function admin_view($id = null) {
-// 		if (!$this->Article->exists($id)) {
-// 			throw new NotFoundException(__('Invalid article'));
-// 		}
-// 		$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-// 		$this->set('article', $this->Article->find('first', $options));
-// 	}
+//     public function admin_view($id = null) {
+//         if (!$this->Article->exists($id)) {
+//             throw new NotFoundException(__('Invalid article'));
+//         }
+//         $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+//         $this->set('article', $this->Article->find('first', $options));
+//     }
 //
 // /**
 //  * admin_add method
 //  *
 //  * @return void
 //  */
-// 	public function admin_add() {
-// 		if ($this->request->is('post')) {
-// 			$this->Article->create();
-// 			if ($this->Article->save($this->request->data)) {
-// 				$this->Flash->success(__('The article has been saved.'));
-// 				return $this->redirect(array('action' => 'index'));
-// 			} else {
-// 				$this->Flash->error(__('The article could not be saved. Please, try again.'));
-// 			}
-// 		}
-// 		$users = $this->Article->User->find('list');
-// 		$products = $this->Article->Product->find('list');
-// 		$this->set(compact('users', 'products'));
-// 	}
+//     public function admin_add() {
+//         if ($this->request->is('post')) {
+//             $this->Article->create();
+//             if ($this->Article->save($this->request->data)) {
+//                 $this->Flash->success(__('The article has been saved.'));
+//                 return $this->redirect(array('action' => 'index'));
+//             } else {
+//                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
+//             }
+//         }
+//         $users = $this->Article->User->find('list');
+//         $products = $this->Article->Product->find('list');
+//         $this->set(compact('users', 'products'));
+//     }
 //
 // /**
 //  * admin_edit method
@@ -193,25 +194,25 @@ class ArticlesController extends AppController {
 //  * @param string $id
 //  * @return void
 //  */
-// 	public function admin_edit($id = null) {
-// 		if (!$this->Article->exists($id)) {
-// 			throw new NotFoundException(__('Invalid article'));
-// 		}
-// 		if ($this->request->is(array('post', 'put'))) {
-// 			if ($this->Article->save($this->request->data)) {
-// 				$this->Flash->success(__('The article has been saved.'));
-// 				return $this->redirect(array('action' => 'index'));
-// 			} else {
-// 				$this->Flash->error(__('The article could not be saved. Please, try again.'));
-// 			}
-// 		} else {
-// 			$options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-// 			$this->request->data = $this->Article->find('first', $options);
-// 		}
-// 		$users = $this->Article->User->find('list');
-// 		$products = $this->Article->Product->find('list');
-// 		$this->set(compact('users', 'products'));
-// 	}
+//     public function admin_edit($id = null) {
+//         if (!$this->Article->exists($id)) {
+//             throw new NotFoundException(__('Invalid article'));
+//         }
+//         if ($this->request->is(array('post', 'put'))) {
+//             if ($this->Article->save($this->request->data)) {
+//                 $this->Flash->success(__('The article has been saved.'));
+//                 return $this->redirect(array('action' => 'index'));
+//             } else {
+//                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
+//             }
+//         } else {
+//             $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
+//             $this->request->data = $this->Article->find('first', $options);
+//         }
+//         $users = $this->Article->User->find('list');
+//         $products = $this->Article->Product->find('list');
+//         $this->set(compact('users', 'products'));
+//     }
 //
 // /**
 //  * admin_delete method
@@ -220,17 +221,17 @@ class ArticlesController extends AppController {
 //  * @param string $id
 //  * @return void
 //  */
-// 	public function admin_delete($id = null) {
-// 		$this->Article->id = $id;
-// 		if (!$this->Article->exists()) {
-// 			throw new NotFoundException(__('Invalid article'));
-// 		}
-// 		$this->request->allowMethod('post', 'delete');
-// 		if ($this->Article->delete()) {
-// 			$this->Flash->success(__('The article has been deleted.'));
-// 		} else {
-// 			$this->Flash->error(__('The article could not be deleted. Please, try again.'));
-// 		}
-// 		return $this->redirect(array('action' => 'index'));
-// 	}
+//     public function admin_delete($id = null) {
+//         $this->Article->id = $id;
+//         if (!$this->Article->exists()) {
+//             throw new NotFoundException(__('Invalid article'));
+//         }
+//         $this->request->allowMethod('post', 'delete');
+//         if ($this->Article->delete()) {
+//             $this->Flash->success(__('The article has been deleted.'));
+//         } else {
+//             $this->Flash->error(__('The article could not be deleted. Please, try again.'));
+//         }
+//         return $this->redirect(array('action' => 'index'));
+//     }
 }
