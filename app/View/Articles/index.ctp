@@ -10,7 +10,6 @@
                             <th><?php echo $this->Paginator->sort('user_id'); ?></th>
                             <th><?php echo $this->Paginator->sort('product_id'); ?></th>
                             <th><?php echo $this->Paginator->sort('image'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('img_src'); ?></th>
                             <th><?php echo $this->Paginator->sort('review'); ?></th>
                             <th><?php echo $this->Paginator->sort('evaluation'); ?></th>
                             <th><?php echo $this->Paginator->sort('great'); ?></th>
@@ -35,6 +34,11 @@
                         <?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
                     </td>
                     <td><?php echo h($article['Article']['image']); ?>&nbsp;</td>
+                    <td><?php
+                    $id = $article['Article']['id'];
+                    $id = "/upimg/" . $id . ".jpg" ;
+                    echo $id;
+                    echo $this->Html->image($id, array('alt' => 'baz')); ?> </td>
                     <td><?php //echo h($article['Article']['image']); ?>&nbsp;</td>
 
                     <td><?php //echo $this->Html->image(’isu.jpg’, array('alt' => 'CakePHP')); ?></td>
@@ -95,6 +99,7 @@
 <div class="actions">
     <h3><?php echo __('Actions'); ?></h3>
     <ul>
+        <li><?php echo $this->Html->link(__('Login'), array('action' => 'login' )); ?></li>
         <li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
         <li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
         <li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>

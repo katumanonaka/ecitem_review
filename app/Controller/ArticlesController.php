@@ -50,38 +50,43 @@ class ArticlesController extends AppController {
     public function add() {
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
-            // if ($this->Article->save($data, $validate = false)) {
 
-            //入力されたファイルが画像ファイルかどうかチェック
+            //アップロードしたファイルの拡張子を取得する
             $extension = $this->request->data('Article.image.type');
-            if($extension != "image/jpeg" && $extension != "image/jpg" && $extension != "image/gif" && $extension != "image/png") {
+            $check_array = array(1 => 'image/jpeg', 2 => 'image/jpg', 3 => 'image/gif', 4 => 'image/png');
+            //アップロードされたファイルが画像ファイルかどうかチェックする
+            if(!array_search($extension , $check_array)) {
                 $this->Flash->error(__('画像ファイルを入れて下さい'));
                 return $this->redirect(array('action' => 'index'));
             }
 
             //保存先のパスを保存
-            $path = "/var/www/html/ecitem_review/app/webroot/upimg/";
             $path = WWW_ROOT . "upimg/";
-
+            //アップロードしたファイルの一時的なパスを取得する
             $img = $this->request->data('Article.image.tmp_name');
-
+            //アップロードしたファイル名を取得する
             $name = $this->request->data('Article.image.name');
 
+
+            //$id = $this->Article->getLastInsertID();
+            //現在ある記事のidの最大値を取得する
+            $box = $this->Article->find('first', array("fields" => "MAX(Article.id) as max_id"));
+            $id = $box[0]['max_id'];
+            //今回追加する記事番号にする
+            $id++;
+            $uploadfile = $path .  "$id.jpg";
+
+            //画像のフォルダとファイル名を指定して保存
+            if(!move_uploaded_file($img,$uploadfile)) {
+                $this->Flash->error(__('画像ファイル保存できませんでした'));
+                return $this->redirect(array('action' => 'index'));
+            }
+
+            //DB保存用にファイル名を保存する
             $this->request->data['Article']['image'] = $name;
 
             if ($this->Article->save($this->request->data)) {
                 $this->Flash->success(__('The article has been saved.'));
-
-                //記事のidを取得する
-                $id = $this->Article->getLastInsertID();
-
-                $uploadfile = $path .  "$id.jpg";
-
-                //画像のフォルダとファイル名を指定して保存
-                if(!move_uploaded_file($img,$uploadfile)) {
-                    debug($id);
-                    return;
-                }
 
                 return $this->redirect(array('action' => 'index'));
 
@@ -155,6 +160,29 @@ class ArticlesController extends AppController {
             $this->Flash->error(__('The article could not be deleted. Please, try again.'));
         }
         return $this->redirect(array('action' => 'index'));
+    }
+
+    // ログイン処理を行う。
+    public function login(){
+        if ($this->request->is('post')) {
+
+            $this->Article->create();
+
+            //アップロードしたファイルの拡張子を取得する
+            $extension = $this->request->data['User']['name'];
+
+            debug($extension);
+            return;
+
+            // Authコンポーネントのログイン処理を呼び出す。
+            if($this->Auth->login()){
+                // ログイン処理成功
+                return $this->flash('認証に成功しました。', '/users/index');
+            }else{
+                // ログイン処理失敗
+                return $this->flash('認証に失敗しました。', '/users/index');
+            }
+        }
     }
 
 /**
