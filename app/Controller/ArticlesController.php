@@ -53,12 +53,13 @@ class ArticlesController extends AppController {
 
             //アップロードしたファイルの拡張子を取得する
             $extension = $this->request->data('Article.image.type');
-            $check_array = array(1 => 'image/jpeg', 2 => 'image/jpg', 3 => 'image/gif', 4 => 'image/png');
-            //アップロードされたファイルが画像ファイルかどうかチェックする
-            if(!array_search($extension , $check_array)) {
+            $check_array = array(0 => 'image/jpeg', 1 => 'image/jpg', 2 => 'image/gif', 3 => 'image/png');
+
+            if(!in_array($extension , $check_array)) {
                 $this->Flash->error(__('画像ファイルを入れて下さい'));
                 return $this->redirect(array('action' => 'index'));
             }
+
 
             //保存先のパスを保存
             $path = WWW_ROOT . "upimg/";
@@ -167,11 +168,15 @@ class ArticlesController extends AppController {
         if ($this->request->is('post')) {
 
             $this->Article->create();
-
+            //$this->User->create();
             //アップロードしたファイルの拡張子を取得する
-            $extension = $this->request->data['User']['name'];
+            $name = $this->request->data['User']['name'];
+            $pass = $this->request->data['User']['password'];
 
-            debug($extension);
+            //現在ある記事のidの最大値を取得する
+            $box = $this->Article->find('all', array("fields" => "Article.user_id"));
+            //$box = $this->User->find('all', array("fields" => "User.name"));
+            debug($box);
             return;
 
             // Authコンポーネントのログイン処理を呼び出す。
@@ -184,97 +189,4 @@ class ArticlesController extends AppController {
             }
         }
     }
-
-/**
- * admin_index method
- *
- * @return void
- */
-//     public function admin_index() {
-//         $this->Article->recursive = 0;
-//         $this->set('articles', $this->Paginator->paginate());
-//     }
-//
-// /**
-//  * admin_view method
-//  *
-//  * @throws NotFoundException
-//  * @param string $id
-//  * @return void
-//  */
-//     public function admin_view($id = null) {
-//         if (!$this->Article->exists($id)) {
-//             throw new NotFoundException(__('Invalid article'));
-//         }
-//         $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-//         $this->set('article', $this->Article->find('first', $options));
-//     }
-//
-// /**
-//  * admin_add method
-//  *
-//  * @return void
-//  */
-//     public function admin_add() {
-//         if ($this->request->is('post')) {
-//             $this->Article->create();
-//             if ($this->Article->save($this->request->data)) {
-//                 $this->Flash->success(__('The article has been saved.'));
-//                 return $this->redirect(array('action' => 'index'));
-//             } else {
-//                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
-//             }
-//         }
-//         $users = $this->Article->User->find('list');
-//         $products = $this->Article->Product->find('list');
-//         $this->set(compact('users', 'products'));
-//     }
-//
-// /**
-//  * admin_edit method
-//  *
-//  * @throws NotFoundException
-//  * @param string $id
-//  * @return void
-//  */
-//     public function admin_edit($id = null) {
-//         if (!$this->Article->exists($id)) {
-//             throw new NotFoundException(__('Invalid article'));
-//         }
-//         if ($this->request->is(array('post', 'put'))) {
-//             if ($this->Article->save($this->request->data)) {
-//                 $this->Flash->success(__('The article has been saved.'));
-//                 return $this->redirect(array('action' => 'index'));
-//             } else {
-//                 $this->Flash->error(__('The article could not be saved. Please, try again.'));
-//             }
-//         } else {
-//             $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
-//             $this->request->data = $this->Article->find('first', $options);
-//         }
-//         $users = $this->Article->User->find('list');
-//         $products = $this->Article->Product->find('list');
-//         $this->set(compact('users', 'products'));
-//     }
-//
-// /**
-//  * admin_delete method
-//  *
-//  * @throws NotFoundException
-//  * @param string $id
-//  * @return void
-//  */
-//     public function admin_delete($id = null) {
-//         $this->Article->id = $id;
-//         if (!$this->Article->exists()) {
-//             throw new NotFoundException(__('Invalid article'));
-//         }
-//         $this->request->allowMethod('post', 'delete');
-//         if ($this->Article->delete()) {
-//             $this->Flash->success(__('The article has been deleted.'));
-//         } else {
-//             $this->Flash->error(__('The article could not be deleted. Please, try again.'));
-//         }
-//         return $this->redirect(array('action' => 'index'));
-//     }
 }
