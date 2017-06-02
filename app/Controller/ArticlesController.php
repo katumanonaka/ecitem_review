@@ -68,14 +68,15 @@ class ArticlesController extends AppController {
             //アップロードしたファイル名を取得する
             $name = $this->request->data('Article.image.name');
 
-
             //$id = $this->Article->getLastInsertID();
             //現在ある記事のidの最大値を取得する
             $box = $this->Article->find('first', array("fields" => "MAX(Article.id) as max_id"));
             $id = $box[0]['max_id'];
             //今回追加する記事番号にする
             $id++;
-            $uploadfile = $path .  "$id.jpg";
+            //$uploadfile = $path . $id . $name;
+
+            $uploadfile = $path . $id . ".jpg";
 
             //画像のフォルダとファイル名を指定して保存
             if(!move_uploaded_file($img,$uploadfile)) {
@@ -174,8 +175,11 @@ class ArticlesController extends AppController {
             $pass = $this->request->data['User']['password'];
 
             //現在ある記事のidの最大値を取得する
-            $box = $this->Article->find('all', array("fields" => "Article.user_id"));
+            //$box = $this->Article->find('all', array("fields" => Array("User.name" , "User.password")));
+            $box = $this->find('all' , array("fields" => array("User.name" , "User.password")));
             //$box = $this->User->find('all', array("fields" => "User.name"));
+            //debug($box[0]['User'][name]);
+            //debug($box[1]['User']);
             debug($box);
             return;
 
