@@ -108,4 +108,38 @@ class UsersController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+    // ログイン処理を行う。
+    public function login(){
+        if ($this->request->is('post')) {
+
+            $this->User->create();
+
+            //入力された名前とパスワードを取得する
+            $name = $this->request->data['User']['name'];
+            $pass = $this->request->data['User']['password'];
+
+            //DBからユーザーデータを取得する
+            $User_data = $this->User->find('all');
+
+            //ユーザーの数を取得する
+            $user_count = count($User_data);
+
+            for($i = 0; $i < $user_count ; $i++) {
+                if($User_data[$i]['User']['name'] == $name && $User_data[$i]['User']['password'] == $pass) {
+                    //入力された値と一致するユーザーのviewへ遷移する
+                    return $this->redirect(array('action' => 'view',$User_data[$i]['User']['id']));
+                }
+            }
+
+            // Authコンポーネントのログイン処理を呼び出す。
+            // if($this->Auth->login()){
+            //     // ログイン処理成功
+            //     return $this->flash('認証に成功しました。', '/users/index');
+            // }else{
+            //     // ログイン処理失敗
+            //     return $this->flash('認証に失敗しました。', '/users/index');
+            // }
+        }
+    }
+
 }

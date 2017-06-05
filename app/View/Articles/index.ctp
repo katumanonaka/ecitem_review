@@ -100,6 +100,7 @@
     <h3><?php echo __('Actions'); ?></h3>
     <ul>
         <li><?php echo $this->Html->link(__('Login'), array('action' => 'login' )); ?></li>
+        <li><?php echo $this->Html->link(__('UsersLogin'), array('controller' => 'users', 'action' => 'login')); ?> </li>
         <li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
         <li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
         <li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>

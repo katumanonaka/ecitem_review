@@ -176,7 +176,7 @@ class ArticlesController extends AppController {
 
             //現在ある記事のidの最大値を取得する
             //$box = $this->Article->find('all', array("fields" => Array("User.name" , "User.password")));
-            $box = $this->find('all' , array("fields" => array("User.name" , "User.password")));
+            $box = $this->Article->find('all' , array("fields" => array("User.id" , "User.name" , "User.password")));
             //$box = $this->User->find('all', array("fields" => "User.name"));
             //debug($box[0]['User'][name]);
             //debug($box[1]['User']);
