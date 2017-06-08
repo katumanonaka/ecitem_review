@@ -27,7 +27,7 @@ class UsersController extends AppController {
 		$this->set('users', $this->Paginator->paginate());
 	}
 
-/**
+/*
  * view method
  *
  * @throws NotFoundException
@@ -119,16 +119,10 @@ class UsersController extends AppController {
             $pass = $this->request->data['User']['password'];
 
             //DBからユーザーデータを取得する
-            $User_data = $this->User->find('all');
-
-            //ユーザーの数を取得する
-            $user_count = count($User_data);
-
-            for($i = 0; $i < $user_count ; $i++) {
-                if($User_data[$i]['User']['name'] == $name && $User_data[$i]['User']['password'] == $pass) {
-                    //入力された値と一致するユーザーのviewへ遷移する
-                    return $this->redirect(array('action' => 'view',$User_data[$i]['User']['id']));
-                }
+            $user_data = $this->User->find('all',array('conditions'=>array('User.name' => $name)));
+            if($user_data[0]['User']['password'] == $pass) {
+                //入力された値と一致するユーザーのviewへ遷移する
+                return $this->redirect(array('action' => 'view',$user_data[0]['User']['id']));
             }
 
             // Authコンポーネントのログイン処理を呼び出す。
