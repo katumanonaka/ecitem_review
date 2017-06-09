@@ -6,16 +6,16 @@
             <table class="table">
                 <thead>
                     <tr>
-                            <th><?php echo $this->Paginator->sort('id'); ?></th>
-                            <th><?php echo $this->Paginator->sort('user_id'); ?></th>
-                            <th><?php echo $this->Paginator->sort('product_id'); ?></th>
-                            <th><?php echo $this->Paginator->sort('image'); ?></th>
-                            <th><?php echo $this->Paginator->sort('review'); ?></th>
-                            <th><?php echo $this->Paginator->sort('evaluation'); ?></th>
-                            <th><?php echo $this->Paginator->sort('great'); ?></th>
-                            <th><?php echo $this->Paginator->sort('created'); ?></th>
-                            <th><?php echo $this->Paginator->sort('modified'); ?></th>
-                            <th class="actions"><?php echo __('Actions'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('id'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('user_id'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('product_id'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('image'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('review'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('evaluation'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('great'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('created'); ?></th>
+                            <th><?php //echo $this->Paginator->sort('modified'); ?></th>
+                            <th class="actions"><?php //echo __('Actions'); ?></th>
                     </tr>
                 </thead>
             </table>
@@ -24,7 +24,7 @@
     <tbody>
     <?php foreach ($articles as $article): ?>
         <div class="container">
-            <table class="table">
+            <table ~~~ class="table-layout:fixed;width:100%;">
                 <tr>
                     <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
                     <td>
@@ -33,53 +33,50 @@
                     <td>
                         <?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
                     </td>
-                    <td><?php echo h($article['Article']['image']); ?>&nbsp;</td>
+
+                </tr>
+                <tr>
+
                     <td><?php
-                    $id = $article['Article']['id'];
-                    $id = "/upimg/" . $id . ".jpg" ;
-                    echo $id;
-                    echo $this->Html->image($id, array('alt' => 'baz')); ?> </td>
-                    <td><?php //echo h($article['Article']['image']); ?>&nbsp;</td>
+                    $article_id = $article['Article']['id'];
+                    $id = "/img/" . $article_id . ".jpg" ;
 
-                    <td><?php //echo $this->Html->image(’isu.jpg’, array('alt' => 'CakePHP')); ?></td>
-                    <td><?php //$test = $this->Html->webroot.IMAGES_URL . "isu.jpg"; ?></td>
+                    // コピー元画像の指定
+                    $path = WWW_ROOT . "upimg/" . $article_id  . ".jpg";
+                    //出力先のファイル
+                    $file = WWW_ROOT . "img/" . $article_id  . ".jpg";
 
-                              <!-- echo $this->Html->image('cake_logo.png', array('alt' => 'CakePHP')); -->
+                    // ファイル名から、画像インスタンスを生成
+                    $in = imagecreatefromjpeg($path);
+                    //元画像サイズ取得
+                    $size = GetImageSize($path);
+                    $width = 200;
+                    $height = 200;
+                    //サイズを指定した背景画像を生成
+                    $out = ImageCreateTrueColor($width, $height);
+                    //サイズ変更・コピー
+                    ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
+                    //画像保存
+                    imagejpeg($out, $file ,100);
+                    echo $this->Html->image($id, array('alt' => 'baz'));
 
-                    <!-- <h2><?php echo __('Uploads'); ?></h2>
-                    <table cellpadding="0" cellspacing="0">
-                    <tr>
-                    <th><?php echo __('id'); ?></th>
-                    <th><?php echo __('file_name'); ?></th>
-                    <th><?php echo __('created'); ?></th>
-                    </tr>
-                    <?php foreach ($articles as $upload) : ?>
-                    <tr>
-                    <td><?php echo h($upload['Article']['id']); ?></td>
-                    <td><?php echo h($upload['Article']['file_name']); ?></td>
-                    <td><?php echo h($upload['Article']['created']); ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                    </table>
-                    </div> -->
+                    ImageDestroy($in);
+                    ImageDestroy($out);
+                    ?> </td>
 
-                    <td><?php echo h($article['Article']['review']); ?>&nbsp;</td>
+                </tr>
+                <tr>
+
                     <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
-                    <td><?php echo h($article['Article']['great']); ?>&nbsp;</td>
-                    <td><?php echo h($article['Article']['created']); ?>&nbsp;</td>
-                    <td><?php echo h($article['Article']['modified']); ?>&nbsp;</td>
-
                     <td class="actions">
                         <button type="button" class="btn btn-success">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
                         </button>
-                        <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $article['Article']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $article['Article']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $article['Article']['id']))); ?>
                     </td>
-    </tr>
-</table>
-</div>
-<?php endforeach; ?>
+                </tr>
+            </table>
+        </div>
+    <?php endforeach; ?>
     </tbody>
     </table>
     <p>
