@@ -1,21 +1,12 @@
 <div class="articles index">
-
+<?php echo $this->element('top');?>
     <h2><?php echo __('Articles'); ?></h2>
     <table cellpadding="0" cellspacing="0">
         <div class="container">
             <table class="table">
                 <thead>
                     <tr>
-                            <th><?php //echo $this->Paginator->sort('id'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('user_id'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('product_id'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('image'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('review'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('evaluation'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('great'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('created'); ?></th>
-                            <th><?php //echo $this->Paginator->sort('modified'); ?></th>
-                            <th class="actions"><?php //echo __('Actions'); ?></th>
+                        <th class="actions"><?php //echo __('Actions'); ?></th>
                     </tr>
                 </thead>
             </table>
@@ -81,16 +72,30 @@
     </table>
     <p>
     <?php
+
+     echo $this->Paginator->counter(array(
+         'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+     ));
+
     echo $this->Paginator->counter(array(
-        'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+        'format' => __('ページ {:page}/{:pages}')
     ));
+
     ?>    </p>
     <div class="paging">
     <?php
+        echo $this->Paginator->first('最初のページへ' , array());
         echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
         echo $this->Paginator->numbers(array('separator' => ''));
         echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+        echo $this->Paginator->last('最後のページへ', array());
     ?>
+    </div>
+
+    <div>
+        <?php
+
+        ?>
     </div>
 </div>
 <div class="actions">

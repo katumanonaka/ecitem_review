@@ -1,4 +1,5 @@
 <div class="articles view">
+<?php echo $this->element('top');?>
 <h2><?php echo __('Article'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>

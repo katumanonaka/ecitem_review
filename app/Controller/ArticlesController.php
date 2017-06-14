@@ -15,8 +15,15 @@ class ArticlesController extends AppController {
  *
  * @var array
  */
-    public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array(
+        //'Paginator',
+        'Session', 'Flash');
 
+    public $paginate = array(
+        'limit' => 5,
+        //'order' => array('Article.id' => 'desc')
+        'direction' => array('Article.id' => 'desc')
+    );
 /**
  * index method
  *
@@ -24,8 +31,12 @@ class ArticlesController extends AppController {
  */
     public function index() {
         $this->Article->recursive = 0;
-        $this->set('articles', $this->Paginator->paginate());
+        //$this->paginate['limit'] = 5;
+        //debug($this->paginate());
+
+        $this->set('articles', $this->paginate());
     }
+
 
 /**
  * view method
