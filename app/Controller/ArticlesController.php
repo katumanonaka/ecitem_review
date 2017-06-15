@@ -21,8 +21,7 @@ class ArticlesController extends AppController {
 
     public $paginate = array(
         'limit' => 5,
-        //'order' => array('Article.id' => 'desc')
-        'direction' => array('Article.id' => 'desc')
+        'order' => array('Article.id' => 'desc')
     );
 /**
  * index method

@@ -22,7 +22,7 @@
 
 <?php
 if (Configure::read('debug') == 0):
-	echo sprintf('<meta http-equiv="Refresh" content="%s;url=%s" />', $pause, $url);
+    echo sprintf('<meta http-equiv="Refresh" content="%s;url=%s" />', $pause, $url);
 endif;
 ?>
 <style><!--
@@ -33,7 +33,7 @@ A:HOVER { text-decoration: underline; color:#44E }
 </head>
 <body>
 <p>
-	<?php echo $this->Html->link($message, $url); ?>
+    <?php echo $this->Html->link($message, $url); ?>
 </p>
 </body>
 </html>

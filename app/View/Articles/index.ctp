@@ -1,5 +1,4 @@
 <div class="articles index">
-<?php echo $this->element('top');?>
     <h2><?php echo __('Articles'); ?></h2>
     <table cellpadding="0" cellspacing="0">
         <div class="container">
@@ -85,9 +84,9 @@
     <div class="paging">
     <?php
         echo $this->Paginator->first('最初のページへ' , array());
-        echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+        echo $this->Paginator->prev('戻る', array(), null, array('class' => 'prev disabled'));
         echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+        echo $this->Paginator->next('進む', array(), null, array('class' => 'next disabled'));
         echo $this->Paginator->last('最後のページへ', array());
     ?>
     </div>
