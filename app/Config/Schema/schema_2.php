@@ -1,6 +1,8 @@
 <?php 
 class AppSchema extends CakeSchema {
 
+	public $file = 'schema_2.php';
+
 	public function before($event = array()) {
 		return true;
 	}
@@ -89,6 +91,18 @@ class AppSchema extends CakeSchema {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 
+	public $test = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
+		't' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'unique'),
+		'te' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+		'tes' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+		'indexes' => array(
+			'PRIMARY' => array('column' => 'id', 'unique' => 1),
+			't' => array('column' => 't', 'unique' => 1)
+		),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
+
 	public $test1 = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
 		't' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
@@ -111,24 +125,30 @@ class AppSchema extends CakeSchema {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 
-	public $test5 = array(
+	public $test3 = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
 		't' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
 		'te' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
 		'tes' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
 		'indexes' => array(
-			
+			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 
-	public $test6 = array(
+	public $users = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
-		't' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
-		'te' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
-		'tes' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'key' => 'unique', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'password' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 32, 'key' => 'unique', 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'thumbnail' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'gender' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 1, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'age' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
+		'job_id' => array('type' => 'integer', 'null' => true, 'default' => null, 'unsigned' => false),
+		'introduction' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'indexes' => array(
-			
+			'PRIMARY' => array('column' => 'id', 'unique' => 1),
+			'name' => array('column' => 'name', 'unique' => 1),
+			'password' => array('column' => 'password', 'unique' => 1)
 		),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
