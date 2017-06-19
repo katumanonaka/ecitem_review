@@ -1,4 +1,7 @@
 <div class="articles index">
+    <?php echo $this->Html->css('style.css'); ?>
+    <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
+    <?php echo $this->Html->script('img.js'); ?>
     <h2><?php echo __('Articles'); ?></h2>
     <table cellpadding="0" cellspacing="0">
         <div class="container">
@@ -12,22 +15,38 @@
         </div>
 
     <tbody>
+    <div class="container">
+    <div class="row">
     <?php foreach ($articles as $article): ?>
-        <div class="container">
+        <div class="col-md-6">
             <table ~~~ class="table-layout:fixed;width:100%;">
                 <tr>
                     <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
                     <td>
-                        <?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
+                        <?php echo $this->Html->link(
+                            $article['User']['name'],
+                             array(
+                                'controller' => 'users',
+                                'action' => 'view',
+                                $article['User']['id']
+                            )
+                        ); ?>
                     </td>
                     <td>
-                        <?php echo $this->Html->link($article['Product']['name'], array('controller' => 'products', 'action' => 'view', $article['Product']['id'])); ?>
+                        <?php echo $this->Html->link(
+                            $article['Product']['name'],
+                            array(
+                                'controller' => 'products',
+                                'action' => 'view',
+                                $article['Product']['id']
+                            )
+                        ); ?>
                     </td>
 
                 </tr>
                 <tr>
 
-                    <td><?php
+                    <td id="item_img"><?php
                     $article_id = $article['Article']['id'];
                     $id = "/img/" . $article_id . ".jpg" ;
 
@@ -48,6 +67,7 @@
                     ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
                     //画像保存
                     imagejpeg($out, $file ,100);
+
                     echo $this->Html->image($id, array('alt' => 'baz'));
 
                     ImageDestroy($in);
@@ -67,6 +87,8 @@
             </table>
         </div>
     <?php endforeach; ?>
+    </div>
+    </div>
     </tbody>
     </table>
     <p>

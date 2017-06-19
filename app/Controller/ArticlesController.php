@@ -20,7 +20,7 @@ class ArticlesController extends AppController {
         'Session', 'Flash');
 
     public $paginate = array(
-        'limit' => 5,
+        'limit' => 6,
         'order' => array('Article.id' => 'desc')
     );
 /**
