@@ -18,7 +18,9 @@
     <div class="container">
     <div class="row">
     <?php foreach ($articles as $article): ?>
+        <!-- 記事ひとまとまり -->
         <div class="col-md-6">
+            <div class="article_chunk">
             <table ~~~ class="table-layout:fixed;width:100%;">
                 <tr>
                     <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
@@ -45,8 +47,8 @@
 
                 </tr>
                 <tr>
-
-                    <td id="item_img"><?php
+                    <!-- 記事の画像表示 -->
+                    <td><?php
                     $article_id = $article['Article']['id'];
                     $id = "/img/" . $article_id . ".jpg" ;
 
@@ -86,13 +88,13 @@
                 </tr>
             </table>
         </div>
+        </div>
     <?php endforeach; ?>
     </div>
     </div>
     </tbody>
     </table>
-    <p>
-    <?php
+    <p><?php
 
      echo $this->Paginator->counter(array(
          'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
@@ -102,7 +104,7 @@
         'format' => __('ページ {:page}/{:pages}')
     ));
 
-    ?>    </p>
+    ?></p>
     <div class="paging">
     <?php
         echo $this->Paginator->first('最初のページへ' , array());
