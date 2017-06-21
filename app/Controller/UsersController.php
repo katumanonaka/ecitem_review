@@ -15,8 +15,9 @@ class UsersController extends AppController {
  *
  * @var array
  */
-    public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array('Paginator', 'Session', 'Flash','Auth');
 
+    public $name ='Users';
 /**
  * index method
  *
@@ -114,6 +115,8 @@ class UsersController extends AppController {
 
             $this->User->create();
 
+            return;
+            debug($this);
             //入力された名前とパスワードを取得する
             $name = $this->request->data['User']['name'];
             $pass = $this->request->data['User']['password'];
@@ -125,6 +128,17 @@ class UsersController extends AppController {
                 return $this->redirect(array('action' => 'view',$user_data[0]['User']['id']));
             }
 
+            //POSTデータが、Users['username']とUsers['password']である場合、$this->Auth->login()で認証が可能。
+            if($this->Auth->login()){
+                //ログイン成功したときの処理
+                //$this->Auth->redirectUrl()でリダイレクト先を取得 2.3より前なら$this->Auth->redirect()
+                return;
+                echo "aaaaa";
+                $this->redirect($this->Auth->redirectUrl());
+            }else{
+                //ログイン失敗したときの処理
+            }
+
             // Authコンポーネントのログイン処理を呼び出す。
             // if($this->Auth->login()){
             //     // ログイン処理成功
@@ -133,7 +147,21 @@ class UsersController extends AppController {
             //     // ログイン処理失敗
             //     return $this->flash('認証に失敗しました。', '/users/index');
             // }
+
+            // if($this->Session->check('Message.auth')){
+            //     echo $this->Session->flash('auth');
+            // }
+            //
+            // echo $this->Form->create('User',array('action' => 'login'));
+            // echo $this->From->input('name');
+            // echo $this->From->input('password');
+            // echo $this->From->end('Login');
+
         }
+    }
+
+    public function logout() {
+        echo $this->Html->tag('h3','ログアウトしました。');
     }
 
 }

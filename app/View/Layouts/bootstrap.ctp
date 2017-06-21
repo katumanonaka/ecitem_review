@@ -12,6 +12,8 @@
 
     <!-- Le styles -->
     <?php echo $this->Html->css('bootstrap.min'); ?>
+    <?php //echo $this->Html->css('style'); ?>
+
     <style>
     body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -35,6 +37,7 @@
     <?php
     echo $this->fetch('meta');
     echo $this->fetch('css');
+    //画面のトップへ戻るボタン
     echo $this->element('top');
     ?>
 </head>
@@ -49,27 +52,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#"><?php echo __('CakePHP'); ?></a>
+                <!-- <a class="brand" href="#"><?php echo __('CakePHP'); ?></a>
                 <div class="nav-collapse">
                     <ul class="nav">
+                    スクロールに合わせて動く
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+                        <li><a href="#contact">Contact</a></li> -->
+                    <!-- </ul> -->
+                <!-- </div>/.nav-collapse  -->
             </div>
         </div>
     </div>
 
-    <div class="container">
-
-        <h1>Bootstrap starter template</h1>
+    <div class="container" id="header">
+        <h1><?php echo $this->Html->link(__('EC商品レビュー'), array('controller' => 'articles', 'action' => 'index')); ?> </h1>
 
         <?php echo $this->Session->flash(); ?>
 
         <?php echo $this->fetch('content'); ?>
 
     </div> <!-- /container -->
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">© nonaka katuma</p>
+        </div>
+    </footer>
 
     <!-- Le javascript
     ================================================== -->
