@@ -22,7 +22,7 @@ class User extends AppModel {
  * @var array
  */
     public $validate = array(
-        'name' => array(
+        'username' => array(
             'notBlank' => array(
                 'rule' => array('notBlank'),
                 //'message' => 'Your custom message here',

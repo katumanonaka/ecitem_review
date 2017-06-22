@@ -50,6 +50,8 @@ class UsersController extends AppController {
  */
     public function add() {
         if ($this->request->is('post')) {
+            //パスワードをハッシュ化する
+            $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('The user has been saved.'));
@@ -109,54 +111,29 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    public function beforeFilter() {
+        $this->Auth->allow('add');
+    }
+
     // ログイン処理を行う。
     public function login(){
         if ($this->request->is('post')) {
-
-            $this->User->create();
-
-            return;
-            debug($this);
-            //入力された名前とパスワードを取得する
-            $name = $this->request->data['User']['name'];
-            $pass = $this->request->data['User']['password'];
-
-            //DBからユーザーデータを取得する
-            $user_data = $this->User->find('all',array('conditions'=>array('User.name' => $name)));
-            if($user_data[0]['User']['password'] == $pass) {
-                //入力された値と一致するユーザーのviewへ遷移する
-                return $this->redirect(array('action' => 'view',$user_data[0]['User']['id']));
-            }
 
             //POSTデータが、Users['username']とUsers['password']である場合、$this->Auth->login()で認証が可能。
             if($this->Auth->login()){
                 //ログイン成功したときの処理
                 //$this->Auth->redirectUrl()でリダイレクト先を取得 2.3より前なら$this->Auth->redirect()
-                return;
-                echo "aaaaa";
-                $this->redirect($this->Auth->redirectUrl());
+
+                // debug($name);
+                // return;
+                echo "成功";
+                return $this->redirect($this->Auth->redirectUrl());
+                //return $this->redirect($this->Auth->redirect());
             }else{
+                echo "失敗";
+                return;
                 //ログイン失敗したときの処理
             }
-
-            // Authコンポーネントのログイン処理を呼び出す。
-            // if($this->Auth->login()){
-            //     // ログイン処理成功
-            //     return $this->flash('認証に成功しました。', '/users/index');
-            // }else{
-            //     // ログイン処理失敗
-            //     return $this->flash('認証に失敗しました。', '/users/index');
-            // }
-
-            // if($this->Session->check('Message.auth')){
-            //     echo $this->Session->flash('auth');
-            // }
-            //
-            // echo $this->Form->create('User',array('action' => 'login'));
-            // echo $this->From->input('name');
-            // echo $this->From->input('password');
-            // echo $this->From->end('Login');
-
         }
     }
 
