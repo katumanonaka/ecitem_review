@@ -65,8 +65,12 @@
         </div>
     </div>
 
+
     <div class="container" id="header">
         <h1><?php echo $this->Html->link(__('EC商品レビュー'), array('controller' => 'articles', 'action' => 'index')); ?> </h1>
+
+        <?php //debug($this->Auth->user()); ?>
+        <?php //debug($this->Auth->user('id')); ?>
 
         <?php echo $this->Session->flash(); ?>
 

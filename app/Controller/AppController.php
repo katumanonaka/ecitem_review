@@ -20,7 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
-
+//'SimplePasswordHasher', 'Controller/Component/Auth'
 /**
  * Application Controller
  *
@@ -31,7 +31,24 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('DebugKit.Toolbar'); //追加
+    public $components = array('DebugKit.Toolbar' => array('panels' => array('history' => false)) ,'Auth','Session');
+    //<span style="color: #ff0000;">=> array('panels' => array('history' => false))</span> ,
+    // 'Auth' => array(
+    //         'loginRedirect' => array(
+    //             'controller' => 'posts',
+    //             'action' => 'index'
+    //         ),
+    //         'logoutRedirect' => array(
+    //             'controller' => 'pages',
+    //             'action' => 'display',
+    //             'home'
+    //         ),
+    //         'authenticate' => array(
+    //             'Form' => array(
+    //                 'passwordHasher' => 'Blowfish'
+    //             )
+    //         )
+    //     )
 
     public $helpers = array(
            'Session',
@@ -39,5 +56,11 @@ class AppController extends Controller {
            'Form' => array('className' => 'TwitterBootstrap.BootstrapForm'),
            'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
     );
-       public $layout = 'bootstrap';
+
+    public $layout = 'bootstrap';
+
+    public function beforeFilter() {
+        // 認証コンポーネントをViewで利用可能にしておく
+        $this->set('auth',$this->Auth);
+    }
 }

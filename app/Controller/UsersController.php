@@ -15,7 +15,14 @@ class UsersController extends AppController {
  *
  * @var array
  */
-    public $components = array('Paginator', 'Session', 'Flash','Auth');
+    public $components = array('Paginator', 'Session', 'Flash','Session',
+            'Auth' => Array(
+                'loginRedirect' => Array('controller'  => 'articles', 'action' => 'index'),
+                'logoutRedirect' => Array('controller' => 'articles', 'action' => 'login'),
+                'loginAction' => Array('controller' => 'articles', 'action' => 'login'),
+                'authenticate' => Array('Form' => Array('fields' => Array('username' => 'username')))
+            )
+    );
 
     public $name ='Users';
 /**
@@ -111,34 +118,56 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    //全てのメソッドで呼び出される
     public function beforeFilter() {
-        $this->Auth->allow('add');
+        $this->Auth->allow('login','add','logout','edit','view','index');
     }
 
-    // ログイン処理を行う。
-    public function login(){
-        if ($this->request->is('post')) {
-
-            //POSTデータが、Users['username']とUsers['password']である場合、$this->Auth->login()で認証が可能。
-            if($this->Auth->login()){
-                //ログイン成功したときの処理
-                //$this->Auth->redirectUrl()でリダイレクト先を取得 2.3より前なら$this->Auth->redirect()
-
-                // debug($name);
-                // return;
-                echo "成功";
-                return $this->redirect($this->Auth->redirectUrl());
-                //return $this->redirect($this->Auth->redirect());
-            }else{
-                echo "失敗";
-                return;
-                //ログイン失敗したときの処理
+    public function login() {
+        if($this->request->is('post')) {
+            debug($this->request->data['User']['password']);
+            if($this->Auth->login()) {
+                return $this->redirect($this->Auth->redirect());
+            } else {
+                echo "ログイン失敗";
+                $this->Session->setFlash(__('ユーザ名かパスワードが間違っています'), 'default', array(), 'auth');
             }
         }
     }
 
+    // //ログイン処理を行う。
+    // public function login(){
+    //     // if ($this->request->is('post')) {
+    //     if($this->request->isPost()) {
+    //         //POSTデータが、Users['username']とUsers['password']である場合、$this->Auth->login()で認証が可能。
+    //         if($this->Auth->login()) {
+    //             //ログイン成功したときの処理
+    //             echo "成功";
+    //             //リダイレクト先を取得
+    //             return $this->redirect($this->Auth->redirect());
+    //             //$this->redirect($this->Auth->redirectUrl());
+    //             //return $this->redirect($this->Auth->redirectUrl());
+    //             //$this->redirect($this->Auth->redirect());
+    //             //return $this->redirect(array('action' => 'index'));
+    //         }else{
+    //             echo "失敗";
+    //             $this->Flash->error(__('ログイン失敗'));
+    //             return;
+    //             //ログイン失敗したときの処理
+    //         }
+    //     }
+    // }
+
     public function logout() {
-        echo $this->Html->tag('h3','ログアウトしました。');
+        //if($this->request->is('post')) {
+            echo "ログアウト！！！！";
+            //return;
+            //$logoutUrl = $this->Auth->logout();
+            //$this->redirect($logoutUrl);
+            $this->Auth->logout();
+
+            //return $this->redirect(array('action' => 'index'));
+        //}
     }
 
 }
