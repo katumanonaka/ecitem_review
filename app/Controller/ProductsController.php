@@ -40,6 +40,12 @@ class ProductsController extends AppController {
         }
         $options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
         $this->set('product', $this->Product->find('first', $options));
+
+        // $this->Product->contain(array('Article.review = "あったかい"', 'Article.review','Article.image'));
+        // $this->Product->contain(array('Product.name = "洗濯機"'));
+        // $data = $this->Product->find('all');
+        // debug($data);
+        // return;
     }
 
 /**
@@ -48,8 +54,10 @@ class ProductsController extends AppController {
  * @return void
  */
     public function add() {
+
         if ($this->request->is('post')) {
             $this->Product->create();
+
             if ($this->Product->save($this->request->data)) {
                 $this->Flash->success(__('The product has been saved.'));
                 return $this->redirect(array('action' => 'index'));

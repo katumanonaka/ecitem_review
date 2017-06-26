@@ -135,39 +135,9 @@ class UsersController extends AppController {
         }
     }
 
-    // //ログイン処理を行う。
-    // public function login(){
-    //     // if ($this->request->is('post')) {
-    //     if($this->request->isPost()) {
-    //         //POSTデータが、Users['username']とUsers['password']である場合、$this->Auth->login()で認証が可能。
-    //         if($this->Auth->login()) {
-    //             //ログイン成功したときの処理
-    //             echo "成功";
-    //             //リダイレクト先を取得
-    //             return $this->redirect($this->Auth->redirect());
-    //             //$this->redirect($this->Auth->redirectUrl());
-    //             //return $this->redirect($this->Auth->redirectUrl());
-    //             //$this->redirect($this->Auth->redirect());
-    //             //return $this->redirect(array('action' => 'index'));
-    //         }else{
-    //             echo "失敗";
-    //             $this->Flash->error(__('ログイン失敗'));
-    //             return;
-    //             //ログイン失敗したときの処理
-    //         }
-    //     }
-    // }
-
     public function logout() {
-        //if($this->request->is('post')) {
-            echo "ログアウト！！！！";
-            //return;
-            //$logoutUrl = $this->Auth->logout();
-            //$this->redirect($logoutUrl);
+            echo "ログアウト！";
             $this->Auth->logout();
-
-            //return $this->redirect(array('action' => 'index'));
-        //}
     }
 
 }

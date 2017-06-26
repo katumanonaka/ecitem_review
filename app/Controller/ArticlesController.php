@@ -50,6 +50,20 @@ class ArticlesController extends AppController {
         }
         $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
         $this->set('article', $this->Article->find('first', $options));
+
+        $this->Article->contain('Comment');
+        $data = $this->Article->find('all');
+        $id--;
+        debug($data[$id]['Comment']);
+        debug($id);
+        $count = count($data[$id]['Comment']);
+        debug($count);
+
+        if($count >= 5) {
+            
+        }
+
+        return;
     }
 
 /**
@@ -175,32 +189,32 @@ class ArticlesController extends AppController {
     }
 
     // ログイン処理を行う。
-    public function login(){
-        if ($this->request->is('post')) {
-
-            $this->Article->create();
-            //$this->User->create();
-            //アップロードしたファイルの拡張子を取得する
-            $name = $this->request->data['User']['name'];
-            $pass = $this->request->data['User']['password'];
-
-            //現在ある記事のidの最大値を取得する
-            //$box = $this->Article->find('all', array("fields" => Array("User.name" , "User.password")));
-            $box = $this->Article->find('all' , array("fields" => array("User.id" , "User.name" , "User.password")));
-            //$box = $this->User->find('all', array("fields" => "User.name"));
-            //debug($box[0]['User'][name]);
-            //debug($box[1]['User']);
-            debug($box);
-            return;
-
-            // Authコンポーネントのログイン処理を呼び出す。
-            if($this->Auth->login()){
-                // ログイン処理成功
-                return $this->flash('認証に成功しました。', '/users/index');
-            }else{
-                // ログイン処理失敗
-                return $this->flash('認証に失敗しました。', '/users/index');
-            }
-        }
-    }
+    // public function login(){
+    //     if ($this->request->is('post')) {
+    //
+    //         $this->Article->create();
+    //         //$this->User->create();
+    //         //アップロードしたファイルの拡張子を取得する
+    //         $name = $this->request->data['User']['name'];
+    //         $pass = $this->request->data['User']['password'];
+    //
+    //         //現在ある記事のidの最大値を取得する
+    //         //$box = $this->Article->find('all', array("fields" => Array("User.name" , "User.password")));
+    //         $box = $this->Article->find('all' , array("fields" => array("User.id" , "User.username" , "User.password")));
+    //         //$box = $this->User->find('all', array("fields" => "User.name"));
+    //         //debug($box[0]['User'][name]);
+    //         //debug($box[1]['User']);
+    //         debug($box);
+    //         return;
+    //
+    //         // Authコンポーネントのログイン処理を呼び出す。
+    //         if($this->Auth->login()){
+    //             // ログイン処理成功
+    //             return $this->flash('認証に成功しました。', '/users/index');
+    //         }else{
+    //             // ログイン処理失敗
+    //             return $this->flash('認証に失敗しました。', '/users/index');
+    //         }
+    //     }
+    // }
 }

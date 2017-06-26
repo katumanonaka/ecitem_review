@@ -134,4 +134,7 @@ class Article extends AppModel {
             'order' => ''
         )
     );
+
+    public $actsAs = array('Tree','Containable');
+
 }

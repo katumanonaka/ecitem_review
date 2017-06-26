@@ -8,7 +8,7 @@
         </dd>
         <dt><?php echo __('User'); ?></dt>
         <dd>
-            <?php echo $this->Html->link($article['User']['name'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
+            <?php echo $this->Html->link($article['User']['username'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?>
             &nbsp;
         </dd>
         <dt><?php echo __('Product'); ?></dt>
@@ -47,6 +47,7 @@
             &nbsp;
         </dd>
     </dl>
+
     <h2>Comments</h2>
     <!-- コメントテーブルからコメント一覧を表示する -->
     <?php foreach($article['Comment'] as $comment):?>
