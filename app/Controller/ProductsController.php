@@ -24,6 +24,12 @@ class ProductsController extends AppController {
  */
     public function index() {
         $this->Product->recursive = 0;
+
+        $data = $this->Product->Data();
+        $this->set("data",$data);
+
+        //$this->set('products', $this->Paginator->paginate());
+
         $this->set('products', $this->Paginator->paginate());
     }
 
@@ -41,11 +47,9 @@ class ProductsController extends AppController {
         $options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
         $this->set('product', $this->Product->find('first', $options));
 
-        // $this->Product->contain(array('Article.review = "あったかい"', 'Article.review','Article.image'));
-        // $this->Product->contain(array('Product.name = "洗濯機"'));
-        // $data = $this->Product->find('all');
-        // debug($data);
-        // return;
+        // $a = $this->Product->test();
+        // debug($a);
+        //return;
     }
 
 /**

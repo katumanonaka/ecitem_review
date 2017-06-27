@@ -2,6 +2,9 @@
     <h2><?php echo __('Products'); ?></h2>
     <table cellpadding="0" cellspacing="0">
     <thead>
+
+        <pre><?php print_r($data)?></pre>
+
     <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
             <th><?php echo $this->Paginator->sort('name'); ?></th>

@@ -50,19 +50,6 @@ class ArticlesController extends AppController {
         }
         $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
         $this->set('article', $this->Article->find('first', $options));
-
-        $this->Article->contain('Comment');
-        $data = $this->Article->find('all');
-        $id--;
-        debug($data[$id]['Comment']);
-        debug($id);
-        $count = count($data[$id]['Comment']);
-        debug($count);
-
-        if($count >= 5) {
-            
-        }
-
         return;
     }
 
