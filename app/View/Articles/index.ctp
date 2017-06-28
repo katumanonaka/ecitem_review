@@ -70,7 +70,7 @@
                     //画像保存
                     imagejpeg($out, $file ,100);
 
-                    echo $this->Html->image($id, array('alt' => 'baz'));
+                    echo $this->Html->image($id, array('alt' => 'item'));
 
                     ImageDestroy($in);
                     ImageDestroy($out);

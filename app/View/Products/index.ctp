@@ -1,9 +1,69 @@
+<?php echo $this->Html->css('style.css'); ?>
+<?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
+<?php echo $this->Html->script('img.js'); ?>
 <div class="products index">
     <h2><?php echo __('Products'); ?></h2>
+
+    <div class="article_chunk">
+        <table ~~~ class="table-layout:fixed;width:100%;">
+            <tr>
+                <td>
+                    <?php
+                        //人気の記事を出力する処理
+                        //記事のid
+                        echo h($data[0]['Article']['id']);
+                    ?>
+                </td>
+
+                <td>
+                    <?php
+                        //記事を投稿したユーザー
+                        echo $this->Html->link(
+                            $data[0]['User']['username'],
+                            array(
+                                'controller' => 'users',
+                                'action' => 'view',
+                                $data[0]['User']['id']
+                            )
+                        );
+                    ?>
+                </td>
+
+                <td>
+                    <?php
+                        //商品名
+                        echo $this->Html->link(
+                            $data[0]['Product']['name'],
+                            array(
+                                'controller' => 'products',
+                                'action' => 'view',
+                                $data[0]['Product']['id']
+                            )
+                        );
+                    ?>
+                </td>
+
+                <td>
+                    <?php
+                        //商品の画像
+                        $article_id = $data[0]['Article']['id'];
+                        $id = "/img/" . $article_id . ".jpg" ;
+                        echo $this->Html->image($id, array('alt' => 'item'));
+                    ?>
+                </td>
+
+                <td>
+                    <button type="button" class="btn btn-success">
+                        <?php echo $this->Html->link(__('View'), array('controller' => 'Articles' , 'action' => 'view', $data[0]['Article']['id'])); ?>
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
     <table cellpadding="0" cellspacing="0">
     <thead>
-
-        <pre><?php print_r($data)?></pre>
 
     <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>

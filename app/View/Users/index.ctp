@@ -3,6 +3,7 @@
     <h2><?php echo __('Users'); ?></h2>
     <table cellpadding="0" cellspacing="0">
     <thead>
+
     <tr>
             <th><?php echo $this->Paginator->sort('id'); ?></th>
             <th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -63,3 +64,39 @@
         <li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
     </ul>
 </div>
+
+
+<?php
+//人気の記事を出力する処理
+    //記事のid
+    echo h($data[0]['Article']['id']);
+
+    //記事を投稿したユーザー
+    echo $this->Html->link(
+        $data[0]['User']['username'],
+        array(
+            'controller' => 'users',
+            'action' => 'view',
+            $data[0]['User']['id']
+        )
+    );
+
+    //商品名
+    echo $this->Html->link(
+        $data[0]['Product']['name'],
+        array(
+            'controller' => 'products',
+            'action' => 'view',
+            $data[0]['Product']['id']
+        )
+    );
+
+    //商品の画像
+    $article_id = $data[0]['Article']['id'];
+    $id = "/img/" . $article_id . ".jpg" ;
+    echo $this->Html->image($id, array('alt' => 'item'));
+
+?>
+    <button type="button" class="btn btn-success">
+    <?php echo $this->Html->link(__('View'), array('controller' => 'Articles' , 'action' => 'view', $data[0]['Article']['id'])); ?>
+    </button>

@@ -25,8 +25,11 @@ class ProductsController extends AppController {
     public function index() {
         $this->Product->recursive = 0;
 
-        $data = $this->Product->Data();
+        $data = $this->Product->top();
         $this->set("data",$data);
+
+        $data2 = $this->Product->te();
+        $this->set("te",$data2);
 
         //$this->set('products', $this->Paginator->paginate());
 

@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  * @property Comment $Comment
  */
 class User extends AppModel {
-
+public $actsAs = array('Test');
 /**
  * Display field
  *
