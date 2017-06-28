@@ -61,11 +61,14 @@ class ProductsController extends AppController {
  * @return void
  */
     public function add() {
-
         if ($this->request->is('post')) {
             $this->Product->create();
 
+            //debug($this->Product->validationErrors);
+            //return;
             if ($this->Product->save($this->request->data)) {
+                debug($this->request->data);
+                return;
                 $this->Flash->success(__('The product has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {

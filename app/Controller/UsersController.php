@@ -61,7 +61,8 @@ class UsersController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             //パスワードをハッシュ化する
-            $this->request->data['User']['password'] = $this->Auth->password($this->request->data['User']['password']);
+            $this->request->data['User']['password']
+             =$this->Auth->password($this->request->data['User']['password']);
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('The user has been saved.'));

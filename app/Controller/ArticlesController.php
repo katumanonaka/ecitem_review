@@ -59,6 +59,8 @@ class ArticlesController extends AppController {
  * @return void
  */
     public function add() {
+        //debug("aaaaa");
+        //return;
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
 
@@ -107,7 +109,13 @@ class ArticlesController extends AppController {
                 $this->Flash->error(__('記事の追加でエラーThe article could not be saved. Please, try again.'));
             }
         }
-        $users = $this->Article->User->find('list');
+
+
+        $users = $this->Article->User->find('list', array(
+            'fields' => array('User.username'))
+        );
+
+        // $users = $this->Article->User->find('list');
         $products = $this->Article->Product->find('list');
         $this->set(compact('users', 'products'));
     }
@@ -175,33 +183,4 @@ class ArticlesController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    // ログイン処理を行う。
-    // public function login(){
-    //     if ($this->request->is('post')) {
-    //
-    //         $this->Article->create();
-    //         //$this->User->create();
-    //         //アップロードしたファイルの拡張子を取得する
-    //         $name = $this->request->data['User']['name'];
-    //         $pass = $this->request->data['User']['password'];
-    //
-    //         //現在ある記事のidの最大値を取得する
-    //         //$box = $this->Article->find('all', array("fields" => Array("User.name" , "User.password")));
-    //         $box = $this->Article->find('all' , array("fields" => array("User.id" , "User.username" , "User.password")));
-    //         //$box = $this->User->find('all', array("fields" => "User.name"));
-    //         //debug($box[0]['User'][name]);
-    //         //debug($box[1]['User']);
-    //         debug($box);
-    //         return;
-    //
-    //         // Authコンポーネントのログイン処理を呼び出す。
-    //         if($this->Auth->login()){
-    //             // ログイン処理成功
-    //             return $this->flash('認証に成功しました。', '/users/index');
-    //         }else{
-    //             // ログイン処理失敗
-    //             return $this->flash('認証に失敗しました。', '/users/index');
-    //         }
-    //     }
-    // }
 }
