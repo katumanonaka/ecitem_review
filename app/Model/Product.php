@@ -139,8 +139,8 @@ class Product extends AppModel {
         )
     );
 
+    // public $actsAs = array('Tree','Containable','Test');
     public $actsAs = array('Tree','Containable','Test');
-
     // public function find($type, $options = array()) {
     //     $data = parent::find($type, array_merge($options, array('contain' => array('Product.name'))));
     //     return $data;

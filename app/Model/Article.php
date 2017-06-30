@@ -135,6 +135,6 @@ class Article extends AppModel {
         )
     );
 
-    public $actsAs = array('Tree','Containable');
+    public $actsAs = array('Containable');
 
 }

@@ -64,11 +64,10 @@ class ProductsController extends AppController {
         if ($this->request->is('post')) {
             $this->Product->create();
 
-            //debug($this->Product->validationErrors);
+            // debug($this->Product->validationErrors);
+            //debug($this->request->data);
             //return;
             if ($this->Product->save($this->request->data)) {
-                debug($this->request->data);
-                return;
                 $this->Flash->success(__('The product has been saved.'));
                 return $this->redirect(array('action' => 'index'));
             } else {

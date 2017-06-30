@@ -20,11 +20,6 @@ class TestBehavior extends ModelBehavior {
     }
 
     public function top(Model $model) {
-        // $count = $model->find('conditions' => );
-        //$data = $model->find('first', array('offset'=>$n));
-        // $data = $model->find('list', array('fields' => array('"'.'User.id'.'"')));
-        // $data = $model->find('all');
-
 
         $article_data = $model->Article->find('all');
         //記事の総数を取得する
