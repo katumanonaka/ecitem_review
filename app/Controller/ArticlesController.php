@@ -29,11 +29,35 @@ class ArticlesController extends AppController {
  * @return void
  */
     public function index() {
-        $this->Article->recursive = 0;
-        //$this->paginate['limit'] = 5;
-        //debug($this->paginate());
+        error_reporting(0);
 
-        $this->set('articles', $this->paginate());
+        $this->Article->recursive = 0;
+        //カテゴリーモデルの読み込み
+        $this->loadModel('Category');
+        $data = $this->Category->find('list');
+        //カテゴリーの量を取得する
+        $category_count = count($data);
+        if ($this->request->isPost()) {
+            for( $i = 1; $i <= $category_count ; $i++ ) {
+                $member_list = trim($_POST["list$i"]);
+                if($member_list != "") {
+                    //選択されたカテゴリーを取得する
+                    $check_num = $member_list;
+                }
+            }
+        }
+
+        $member_list2 = trim($_GET["button"]);
+        $category = $this->Article->category($check_num);
+
+        $category2 = $this->Article->category2();
+
+        if($category == null) {
+            $this->set('select_category', $this->paginate());
+        } else {
+            $this->set('select_category',$category);
+        }
+        $this->set('category',$data);
     }
 
 
@@ -59,8 +83,7 @@ class ArticlesController extends AppController {
  * @return void
  */
     public function add() {
-        //debug("aaaaa");
-        //return;
+
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
 
@@ -72,7 +95,6 @@ class ArticlesController extends AppController {
                 $this->Flash->error(__('画像ファイルを入れて下さい'));
                 return $this->redirect(array('action' => 'index'));
             }
-
 
             //保存先のパスを保存
             $path = WWW_ROOT . "upimg/";
@@ -157,7 +179,8 @@ class ArticlesController extends AppController {
             $options = array('conditions' => array('Article.' . $this->Article->primaryKey => $id));
             $this->request->data = $this->Article->find('first', $options);
         }
-        $users = $this->Article->User->find('list');
+
+        $users = $this->Article->User->find('list', array('fields' => array('User.username')));
         $products = $this->Article->Product->find('list');
         $this->set(compact('users', 'products'));
     }

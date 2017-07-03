@@ -1,8 +1,25 @@
 <div class="articles index">
+    <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <?php echo $this->Html->script('img.js'); ?>
     <h2><?php echo __('Articles'); ?></h2>
+
+    <div id="check">
+        <h4>カテゴリーチェック</h4>
+            <?php  foreach($category as $key => $data):?>
+                <input type="checkbox" name="list<?= $key; ?>" value="<?= $key; ?>">
+                <!--メンバーを表示するチェックボックス -->
+                <?= $data;?>
+                <!-- <input type="submit" name="button<?= $key;?>" value = "<?= $data;?>" /> -->
+        <?php  endforeach;?>
+    </div>
+    <!-- <input type="submit" name="button" value = "555" /> -->
+<?php
+    //echo $this->Form->checkbox('cate', array('' => false));
+?>
+    <?php echo $this->Form->end(__('Submit'));?>
+
     <table cellpadding="0" cellspacing="0">
         <div class="container">
             <table class="table">
@@ -17,7 +34,8 @@
     <tbody>
     <div class="container">
     <div class="row">
-    <?php foreach ($articles as $article): ?>
+    <?php //foreach ($articles as $article): ?>
+    <?php foreach ($select_category as $article): ?>
         <!-- 記事ひとまとまり -->
         <div class="col-md-6">
             <div class="article_chunk">
