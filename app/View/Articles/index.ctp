@@ -7,17 +7,14 @@
 
     <div id="check">
         <h4>カテゴリーチェック</h4>
-            <?php  foreach($category as $key => $data):?>
-                <input type="checkbox" name="list<?= $key; ?>" value="<?= $key; ?>">
-                <!--メンバーを表示するチェックボックス -->
-                <?= $data;?>
-                <!-- <input type="submit" name="button<?= $key;?>" value = "<?= $data;?>" /> -->
-        <?php  endforeach;?>
+        <?php
+            echo $this->Form->input('category', array(
+            'multiple' => 'checkbox',
+            'options' => $category_id,
+            ));
+        ?>
     </div>
-    <!-- <input type="submit" name="button" value = "555" /> -->
-<?php
-    //echo $this->Form->checkbox('cate', array('' => false));
-?>
+
     <?php echo $this->Form->end(__('Submit'));?>
 
     <table cellpadding="0" cellspacing="0">
@@ -35,7 +32,7 @@
     <div class="container">
     <div class="row">
     <?php //foreach ($articles as $article): ?>
-    <?php foreach ($select_category as $article): ?>
+    <?php foreach ($selected_article as $article): ?>
         <!-- 記事ひとまとまり -->
         <div class="col-md-6">
             <div class="article_chunk">

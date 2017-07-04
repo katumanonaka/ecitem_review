@@ -29,35 +29,41 @@ class ArticlesController extends AppController {
  * @return void
  */
     public function index() {
-        error_reporting(0);
+        //error_reporting(0);
 
         $this->Article->recursive = 0;
         //カテゴリーモデルの読み込み
         $this->loadModel('Category');
-        $data = $this->Category->find('list');
-        //カテゴリーの量を取得する
-        $category_count = count($data);
-        if ($this->request->isPost()) {
-            for( $i = 1; $i <= $category_count ; $i++ ) {
-                $member_list = trim($_POST["list$i"]);
-                if($member_list != "") {
-                    //選択されたカテゴリーを取得する
-                    $check_num = $member_list;
-                }
-            }
-        }
+        $categry_data = $this->Category->find('list');
 
-        $member_list2 = trim($_GET["button"]);
-        $category = $this->Article->category($check_num);
+
+        //カテゴリーの数を取得する
+        //$category_count = count($categry_data);
+        // if($this->request->isPost()) {
+        //     for($i = 1; $i <= $category_count; $i++) {
+        //         $member_list = trim($_POST["list$i"]);
+        //         if($member_list != "") {
+        //             //選択されたカテゴリーを取得する
+        //             //$category_id = $member_list;
+        //         }
+        //     }
+        // }
+        // $member_list2 = trim($_GET["button"]);
+
+        $category_id = $this->request->data['Article']['category'][0];
+
+        $selected_article = $this->Article->get_category($category_id);
 
         $category2 = $this->Article->category2();
 
-        if($category == null) {
-            $this->set('select_category', $this->paginate());
+        if($selected_article == null) {
+            $this->set('selected_article', $this->paginate());
         } else {
-            $this->set('select_category',$category);
+            $this->set('selected_article',$selected_article);
         }
-        $this->set('category',$data);
+        $this->set('category',$categry_data);
+
+        $this->set('category_id', $this->Category->find('list', array('fields' => array('name'))));
     }
 
 

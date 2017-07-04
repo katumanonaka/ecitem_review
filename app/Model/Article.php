@@ -137,17 +137,9 @@ class Article extends AppModel {
 
     public $actsAs = array('Containable');
 
-    public function category($category_num){
-        //$data = $this->$category->find('all');
-        //$data = $this->Article->category->find('all');
+    public function get_category($category_id){
 
-        //$data = $category_num;
-
-        $data = $this->find('all', array(
-               'conditions' => array('Product.category_id' => $category_num)
-           ));
-
-        // $data = $this->find('all');
+        $data = $this->find('all' , array('conditions' => array('Product.category_id' => $category_id)));
 
         return $data;
     }
@@ -159,7 +151,7 @@ class Article extends AppModel {
         //
         $n = 22;
 
-        $sql = "SELECT * FROM articles WHERE articles.id = :id;";
+        $sql = "SELECT * FROM articles WHERE articles.id = $n";
 
         $params = array(
             'id'=> $n
