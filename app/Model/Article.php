@@ -151,7 +151,7 @@ class Article extends AppModel {
         //
         $n = 22;
 
-        $sql = "SELECT * FROM articles WHERE articles.id = $n";
+        $sql = "SELECT * FROM articles INNER JOIN users ON articles.user_id = users.id INNER JOIN products ON articles.product_id = products.id WHERE articles.id = $n";
 
         $params = array(
             'id'=> $n
@@ -159,8 +159,8 @@ class Article extends AppModel {
         // for($i = 0; $i < $count; $i++) {
         // }
 
-       $data = $this->query($sql,$params);
-       return $data;
+        $data = $this->query($sql);
+        return $data;
     }
 
 }

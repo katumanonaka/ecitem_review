@@ -32,37 +32,27 @@ class ArticlesController extends AppController {
         //error_reporting(0);
 
         $this->Article->recursive = 0;
-        //カテゴリーモデルの読み込み
+        //カテゴリーデータの読み込み
         $this->loadModel('Category');
         $categry_data = $this->Category->find('list');
 
-
-        //カテゴリーの数を取得する
-        //$category_count = count($categry_data);
-        // if($this->request->isPost()) {
-        //     for($i = 1; $i <= $category_count; $i++) {
-        //         $member_list = trim($_POST["list$i"]);
-        //         if($member_list != "") {
-        //             //選択されたカテゴリーを取得する
-        //             //$category_id = $member_list;
-        //         }
-        //     }
-        // }
-        // $member_list2 = trim($_GET["button"]);
-
-        $category_id = $this->request->data['Article']['category'][0];
-
+        //選択されたカテゴリーidを取得する
+        $category_id = $this->request->data['Article']['category'];
+        //カテゴリーidをModelに渡して該当する記事データを受け取る
         $selected_article = $this->Article->get_category($category_id);
 
         $category2 = $this->Article->category2();
+        debug($category2);
+        debug($selected_article);
 
         if($selected_article == null) {
-            $this->set('selected_article', $this->paginate());
+            //カテゴリー選択をしない場合全件出力する
+            $this->set('selected_article', $category2);// $this->paginate());
         } else {
             $this->set('selected_article',$selected_article);
         }
-        $this->set('category',$categry_data);
 
+        //カテゴリー数とカテゴリー名をViewに送る
         $this->set('category_id', $this->Category->find('list', array('fields' => array('name'))));
     }
 

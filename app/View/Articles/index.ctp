@@ -1,4 +1,5 @@
 <div class="articles index">
+    <?php //error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
@@ -38,24 +39,24 @@
             <div class="article_chunk">
             <table ~~~ class="table-layout:fixed;width:100%;">
                 <tr>
-                    <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
+                    <td><?php echo h($article['articles']['id']); ?>&nbsp;</td>
                     <td>
                         <?php echo $this->Html->link(
-                            $article['User']['username'],
+                            $article['users']['username'],
                              array(
                                 'controller' => 'users',
                                 'action' => 'view',
-                                $article['User']['id']
+                                $article['users']['id']
                             )
                         ); ?>
                     </td>
                     <td>
                         <?php echo $this->Html->link(
-                            $article['Product']['name'],
+                            $article['products']['name'],
                             array(
                                 'controller' => 'products',
                                 'action' => 'view',
-                                $article['Product']['id']
+                                $article['products']['id']
                             )
                         ); ?>
                     </td>
@@ -64,7 +65,7 @@
                 <tr>
                     <!-- 記事の画像表示 -->
                     <td><?php
-                    $article_id = $article['Article']['id'];
+                    $article_id = $article['articles']['id'];
                     $id = "/img/" . $article_id . ".jpg" ;
 
                     // コピー元画像の指定
@@ -94,10 +95,10 @@
                 </tr>
                 <tr>
 
-                    <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
+                    <td><?php echo h($article['articles']['evaluation']); ?>&nbsp;</td>
                     <td class="actions">
                         <button type="button" class="btn btn-success">
-                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
+                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['articles']['id'])); ?>
                         </button>
                     </td>
                 </tr>
