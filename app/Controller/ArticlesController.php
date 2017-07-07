@@ -38,22 +38,28 @@ class ArticlesController extends AppController {
 
         //選択されたカテゴリーidを取得する
         $category_id = $this->request->data['Article']['category'];
-        //カテゴリーidをModelに渡して該当する記事データを受け取る
-        //$selected_article = $this->Article->get_category($category_id);
 
-        $id = 1;
-        //複数選択した条件を送る、検索した記事データを取得する
-        $category2 = $this->Article->category2($category_id);
+        //選択された評価数値を取得する
+        $evaluation_num = $this->request->data['Article']['evaluation'];
 
-        if($category2 == null) {
-            //カテゴリー選択をしない場合全件出力する
-            $this->set('selected_article', $this->paginate());
-        } else {
-            $this->set('selected_article',$category2);
+        if($category_id == null && $evaluation_num == null) {
+            //全ての記事データを取得する
+            $all_artircl = $this->Article->get_all_artircl();
+            $this->set('selected_article', $all_artircl);
+        } elseif($evaluation_num == null) {
+
+        }
+        else {
+            //複数選択した条件を送る、検索した記事データを取得する
+            $selected_articles = $this->Article->get_selected_articles($category_id,$evaluation_num);
+            $this->set('selected_article',$selected_articles);
         }
 
-        //カテゴリー数とカテゴリー名をViewに送る
+        //チェックボックのためのカテゴリー数とカテゴリー名をViewに送る
         $this->set('category_id', $this->Category->find('list', array('fields' => array('name'))));
+        $evaluation = array(1,2,3,4,5);
+        //5段階評価のカテゴリー
+        $this->set('article_evaluation', $evaluation);
     }
 
 

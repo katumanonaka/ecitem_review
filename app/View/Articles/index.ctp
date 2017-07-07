@@ -6,12 +6,22 @@
     <?php echo $this->Html->script('img.js'); ?>
     <h2><?php echo __('Articles'); ?></h2>
 
-    <div id="check">
-        <h4>カテゴリーチェック</h4>
+    <div class="col-md-6">
+        <h4>カテゴリー</h4>
         <?php
             echo $this->Form->input('category', array(
             'multiple' => 'checkbox',
             'options' => $category_id,
+            ));
+        ?>
+    </div>
+
+    <div class="col-md-6">
+        <h4>評価指数</h4>
+        <?php
+            echo $this->Form->input('evaluation', array(
+            'multiple' => 'checkbox',
+            'options' => $article_evaluation,
             ));
         ?>
     </div>

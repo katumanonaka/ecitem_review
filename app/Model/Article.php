@@ -144,17 +144,34 @@ class Article extends AppModel {
         return $data;
     }
 
-    public function category2($category_id) {
-        //渡されたカテゴリーidをカンマ区切りの文字列に変換して
-        $category_id = implode("," , $category_id);
+    public function get_all_artircl() {
+        //記事データの全てを取得する
+        $sql = "SELECT *
+        FROM articles
+        INNER JOIN users
+        ON articles.user_id = users.id
+        INNER JOIN products
+        ON articles.product_id = products.id";
 
+        $data = $this->query($sql);
+        return $data;
+    }
+
+    public function get_selected_articles($category_id,$evaluation_num) {
+        //渡されたカテゴリーidをカンマ区切りの文字列に変換する
+        $category_id_str = implode("," , $category_id);
+        //渡された評価数値をカンマ区切りの文字列に変換する
+        $evaluation = implode("," , $evaluation_num);
+
+        //選択された条件で記事データを抽出する
         $sql = "SELECT *
         FROM articles
         INNER JOIN users
         ON articles.user_id = users.id
         INNER JOIN products
         ON articles.product_id = products.id
-        WHERE products.category_id IN ($temp)";
+        WHERE products.category_id IN ($category_id_str)
+        AND articles.evaluation IN ($evaluation)";
 
         $data = $this->query($sql);
         return $data;
