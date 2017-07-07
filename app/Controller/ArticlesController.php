@@ -39,17 +39,17 @@ class ArticlesController extends AppController {
         //選択されたカテゴリーidを取得する
         $category_id = $this->request->data['Article']['category'];
         //カテゴリーidをModelに渡して該当する記事データを受け取る
-        $selected_article = $this->Article->get_category($category_id);
+        //$selected_article = $this->Article->get_category($category_id);
 
-        $category2 = $this->Article->category2();
-        debug($category2);
-        debug($selected_article);
+        $id = 1;
+        //複数選択した条件を送る、検索した記事データを取得する
+        $category2 = $this->Article->category2($category_id);
 
-        if($selected_article == null) {
+        if($category2 == null) {
             //カテゴリー選択をしない場合全件出力する
-            $this->set('selected_article', $category2);// $this->paginate());
+            $this->set('selected_article', $this->paginate());
         } else {
-            $this->set('selected_article',$selected_article);
+            $this->set('selected_article',$category2);
         }
 
         //カテゴリー数とカテゴリー名をViewに送る

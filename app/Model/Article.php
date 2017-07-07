@@ -144,20 +144,17 @@ class Article extends AppModel {
         return $data;
     }
 
-    public function category2() {
+    public function category2($category_id) {
+        //渡されたカテゴリーidをカンマ区切りの文字列に変換して
+        $category_id = implode("," , $category_id);
 
-        //$count =count($category_num);
-        // $sql[] = "SELECT * FROME articles INNER JOIN products ON articles.product_id = products.id WHERE products.category_id = :id;";
-        //
-        $n = 22;
-
-        $sql = "SELECT * FROM articles INNER JOIN users ON articles.user_id = users.id INNER JOIN products ON articles.product_id = products.id WHERE articles.id = $n";
-
-        $params = array(
-            'id'=> $n
-        );
-        // for($i = 0; $i < $count; $i++) {
-        // }
+        $sql = "SELECT *
+        FROM articles
+        INNER JOIN users
+        ON articles.user_id = users.id
+        INNER JOIN products
+        ON articles.product_id = products.id
+        WHERE products.category_id IN ($temp)";
 
         $data = $this->query($sql);
         return $data;
