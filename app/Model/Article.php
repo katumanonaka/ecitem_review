@@ -144,7 +144,7 @@ class Article extends AppModel {
         return $data;
     }
 
-    public function get_all_artircl() {
+    public function get_all_artircles() {
         //記事データの全てを取得する
         $sql = "SELECT *
         FROM articles
@@ -158,23 +158,103 @@ class Article extends AppModel {
     }
 
     public function get_selected_articles($category_id,$evaluation_num) {
-        //渡されたカテゴリーidをカンマ区切りの文字列に変換する
-        $category_id_str = implode("," , $category_id);
-        //渡された評価数値をカンマ区切りの文字列に変換する
-        $evaluation = implode("," , $evaluation_num);
+
+        //カテゴリーのfindを使えるようにする
+        $category = ClassRegistry::init('Category');
+
+        if($category_id == null) {
+            //カテゴリーが選択されていなければ全てのカテゴリーidを代入する
+            $temp = $category->find('list' , array('fields' => array('id')));
+            $category_id_str = implode("," , $temp);
+
+        } else {
+            //渡されたカテゴリーidをカンマ区切りの文字列に変換する
+            $category_id_str = implode("," , $category_id);
+        }
+
+        if($evaluation_num == null) {
+            //評価指数が入力されていなければすべての評価指数を代入する
+            $evaluation_str = "1,2,3,4,5";
+        } else {
+            //渡された評価数値をカンマ区切りの文字列に変換する
+            $evaluation_str = implode("," , $evaluation_num);
+        }
 
         //選択された条件で記事データを抽出する
         $sql = "SELECT *
-        FROM articles
-        INNER JOIN users
-        ON articles.user_id = users.id
-        INNER JOIN products
-        ON articles.product_id = products.id
-        WHERE products.category_id IN ($category_id_str)
-        AND articles.evaluation IN ($evaluation)";
+        FROM
+            articles
+        INNER JOIN
+            users
+        ON
+            articles.user_id = users.id
+        INNER JOIN
+            products
+        ON
+            articles.product_id = products.id
+        WHERE
+            products.category_id IN ($category_id_str)
+        AND
+            articles.evaluation IN ($evaluation_str)";
 
         $data = $this->query($sql);
+        return $sql;
+    }
+
+
+    public $useTable = false;
+
+    public function paginate() {
+        //debug("stoppaginete()");
+        //return;
+        $extra = func_get_arg(6);
+        $limit = func_get_arg(3);
+        $page = func_get_arg(4);
+
+        // debug($extra['type']);
+        // return;
+
+        // $sql = $extra['extra']['type'];
+        // $sql .= ' limit ' . $limit;
+        // if ($page > 1){
+        //     $sql .= ' OFFSET ' . ($limit * ($page - 1));
+        // }
+
+        //return $this->query($sql);
+
+        //$extra['type'] = $sql;
+        $data = $this->query($extra['type']);
+
+        //debug($data);
+        //return;
         return $data;
     }
+
+    public function paginateCount() {
+        $extra = func_get_arg(2);
+        return count($this->query(
+            preg_replace(
+                '/LIMIT \d+ OFFSET \d+$/u',
+                '',
+                $extra['type']
+            )
+        ));
+    }
+
+    // public $base_sql = "(select name from members) union (select name from member2s)";
+    //
+    // public function paginate($conditions,$fields,$order,$limit,$page=1,$recursive=null,$extra=array()){
+    //     if($page==0){$page = 1;}
+    //     $recursive = -1;
+    //     $offset = $page * $limit - $limit;
+    //     $sql = $this->base_sql . ' limit ' . $limit . ' offset ' . $offset;
+    //     return $this->query($sql);
+    // }
+    //
+    // public function paginateCount($conditions=null,$recursive=0,$extra=array()){
+    //     $this->recursive = $recursive;
+    //     $results = $this->query($this->base_sql);
+    //     return count($results);
+    // }
 
 }

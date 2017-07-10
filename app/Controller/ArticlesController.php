@@ -23,6 +23,8 @@ class ArticlesController extends AppController {
         'limit' => 6,
         'order' => array('Article.id' => 'desc')
     );
+
+    public $uses = ['Article'];
 /**
  * index method
  *
@@ -42,22 +44,31 @@ class ArticlesController extends AppController {
         //選択された評価数値を取得する
         $evaluation_num = $this->request->data['Article']['evaluation'];
 
-        if($category_id == null && $evaluation_num == null) {
-            //全ての記事データを取得する
-            $all_artircl = $this->Article->get_all_artircl();
-            $this->set('selected_article', $all_artircl);
-        } elseif($evaluation_num == null) {
+        //複数選択した条件を送る、検索した記事データを取得する
+        // $selected_articles = $this->Article->get_selected_articles($category_id,$evaluation_num);
 
-        }
-        else {
-            //複数選択した条件を送る、検索した記事データを取得する
-            $selected_articles = $this->Article->get_selected_articles($category_id,$evaluation_num);
-            $this->set('selected_article',$selected_articles);
-        }
+        $sql = $this->Article->get_selected_articles($category_id,$evaluation_num);
+        $query = [
+            'limit' => 6,
+            'extra' => [
+                'type' => $sql
+            ],
+        ];
+        // debug($sql);
+        // return;
+
+        $this->paginate = $sql;
+        $this->set('selected_article', $this->paginate('Article'));
+
+        //$this->settings = $query;
+        // $history_lists = $this->paginate('Article');
+        // $this->set('selected_article', $history_lists);
+
+        //$this->set('selected_article',$selected_articles);
 
         //チェックボックのためのカテゴリー数とカテゴリー名をViewに送る
         $this->set('category_id', $this->Category->find('list', array('fields' => array('name'))));
-        $evaluation = array(1,2,3,4,5);
+        $evaluation = array(1 => 1,2,3,4,5);
         //5段階評価のカテゴリー
         $this->set('article_evaluation', $evaluation);
     }
