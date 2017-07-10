@@ -162,17 +162,17 @@ class Article extends AppModel {
         //カテゴリーのfindを使えるようにする
         $category = ClassRegistry::init('Category');
 
-        if($category_id == null) {
+        // if($category_id == null) {
+        if(empty($category_id)) {
             //カテゴリーが選択されていなければ全てのカテゴリーidを代入する
             $temp = $category->find('list' , array('fields' => array('id')));
             $category_id_str = implode("," , $temp);
-
         } else {
             //渡されたカテゴリーidをカンマ区切りの文字列に変換する
             $category_id_str = implode("," , $category_id);
         }
 
-        if($evaluation_num == null) {
+        if(empty($evaluation_num)) {
             //評価指数が入力されていなければすべての評価指数を代入する
             $evaluation_str = "1,2,3,4,5";
         } else {
@@ -205,29 +205,21 @@ class Article extends AppModel {
     public $useTable = false;
 
     public function paginate() {
-        //debug("stoppaginete()");
-        //return;
+
         $extra = func_get_arg(6);
         $limit = func_get_arg(3);
         $page = func_get_arg(4);
 
-        // debug($extra['type']);
-        // return;
+        //1ページの表示件数を指定
+        // $limit = 6;
 
-        // $sql = $extra['extra']['type'];
-        // $sql .= ' limit ' . $limit;
-        // if ($page > 1){
-        //     $sql .= ' OFFSET ' . ($limit * ($page - 1));
-        // }
+        $sql = $extra['extra']['type'];
+        $sql .= ' limit ' . $limit;
+        if ($page > 1){
+            $sql .= ' OFFSET ' . ($limit * ($page - 1));
+        }
 
-        //return $this->query($sql);
-
-        //$extra['type'] = $sql;
-        $data = $this->query($extra['type']);
-
-        //debug($data);
-        //return;
-        return $data;
+        return $this->query($sql);
     }
 
     public function paginateCount() {
@@ -236,7 +228,7 @@ class Article extends AppModel {
             preg_replace(
                 '/LIMIT \d+ OFFSET \d+$/u',
                 '',
-                $extra['type']
+                $extra['extra']['type']
             )
         ));
     }

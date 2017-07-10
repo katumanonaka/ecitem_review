@@ -16,8 +16,10 @@ class ArticlesController extends AppController {
  * @var array
  */
     public $components = array(
-        //'Paginator',
-        'Session', 'Flash');
+        'Paginator',
+        'Session',
+        'Flash'
+    );
 
     public $paginate = array(
         'limit' => 6,
@@ -54,15 +56,13 @@ class ArticlesController extends AppController {
                 'type' => $sql
             ],
         ];
-        // debug($sql);
-        // return;
 
-        $this->paginate = $sql;
-        $this->set('selected_article', $this->paginate('Article'));
+         //$this->paginate = $sql;
+        // $this->set('selected_article', $this->paginate('Article'));
 
-        //$this->settings = $query;
-        // $history_lists = $this->paginate('Article');
-        // $this->set('selected_article', $history_lists);
+        $this->Paginator->settings = $query;
+        $history_lists = $this->Paginator->paginate('Article');
+        $this->set('selected_article', $history_lists);
 
         //$this->set('selected_article',$selected_articles);
 
