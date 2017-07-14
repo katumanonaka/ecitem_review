@@ -205,7 +205,8 @@ class Article extends AppModel {
     public $useTable = false;
 
     public function paginate() {
-
+// debug("aaaa");
+// return;
         $extra = func_get_arg(6);
         $limit = func_get_arg(3);
         $page = func_get_arg(4);
@@ -218,6 +219,7 @@ class Article extends AppModel {
         if ($page > 1){
             $sql .= ' OFFSET ' . ($limit * ($page - 1));
         }
+
 
         return $this->query($sql);
     }
@@ -233,8 +235,8 @@ class Article extends AppModel {
         ));
     }
 
-    // public $base_sql = "(select name from members) union (select name from member2s)";
-    //
+    public $base_sql = "(select name from members) union (select name from member2s)";
+
     // public function paginate($conditions,$fields,$order,$limit,$page=1,$recursive=null,$extra=array()){
     //     if($page==0){$page = 1;}
     //     $recursive = -1;

@@ -23,7 +23,8 @@ class ArticlesController extends AppController {
 
     public $paginate = array(
         'limit' => 6,
-        'order' => array('Article.id' => 'desc')
+        'order' => array('Article.id' => 'desc'),
+        'conditions' => array('Article.id <' => 15)
     );
 
     public $uses = ['Article'];
@@ -57,8 +58,16 @@ class ArticlesController extends AppController {
             ],
         ];
 
-         //$this->paginate = $sql;
+
+        // $this->paginate = $sql;
         // $this->set('selected_article', $this->paginate('Article'));
+
+        //$conditions = array('id' => 5);//array(20,21,22));
+        //$this->paginate['conditions'] = $conditions;
+        // debug($conditions);
+        // return;
+        //$data = $this->paginate($conditions);
+        //$this->set('selected_article', $data);
 
         $this->Paginator->settings = $query;
         $history_lists = $this->Paginator->paginate('Article');
