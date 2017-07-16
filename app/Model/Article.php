@@ -202,53 +202,53 @@ class Article extends AppModel {
     }
 
 
-    public $useTable = false;
+    //public $useTable = false;
 
-    public function paginate() {
-// debug("aaaa");
-// return;
-        $extra = func_get_arg(6);
-        $limit = func_get_arg(3);
-        $page = func_get_arg(4);
+//     public function paginate() {
+// // debug("aaaa");
+// // return;
+//         $extra = func_get_arg(6);
+//         $limit = func_get_arg(3);
+//         $page = func_get_arg(4);
+//
+//         //1ページの表示件数を指定
+//         // $limit = 6;
+//
+//         $sql = $extra['extra']['type'];
+//         $sql .= ' limit ' . $limit;
+//         if ($page > 1){
+//             $sql .= ' OFFSET ' . ($limit * ($page - 1));
+//         }
+//
+//
+//         return $this->query($sql);
+//     }
 
-        //1ページの表示件数を指定
-        // $limit = 6;
-
-        $sql = $extra['extra']['type'];
-        $sql .= ' limit ' . $limit;
-        if ($page > 1){
-            $sql .= ' OFFSET ' . ($limit * ($page - 1));
-        }
-
-
-        return $this->query($sql);
-    }
-
-    public function paginateCount() {
-        $extra = func_get_arg(2);
-        return count($this->query(
-            preg_replace(
-                '/LIMIT \d+ OFFSET \d+$/u',
-                '',
-                $extra['extra']['type']
-            )
-        ));
-    }
-
-    public $base_sql = "(select name from members) union (select name from member2s)";
-
-    // public function paginate($conditions,$fields,$order,$limit,$page=1,$recursive=null,$extra=array()){
-    //     if($page==0){$page = 1;}
-    //     $recursive = -1;
-    //     $offset = $page * $limit - $limit;
-    //     $sql = $this->base_sql . ' limit ' . $limit . ' offset ' . $offset;
-    //     return $this->query($sql);
+    // public function paginateCount() {
+    //     $extra = func_get_arg(2);
+    //     return count($this->query(
+    //         preg_replace(
+    //             '/LIMIT \d+ OFFSET \d+$/u',
+    //             '',
+    //             $extra['extra']['type']
+    //         )
+    //     ));
     // }
-    //
-    // public function paginateCount($conditions=null,$recursive=0,$extra=array()){
-    //     $this->recursive = $recursive;
-    //     $results = $this->query($this->base_sql);
-    //     return count($results);
-    // }
+
+    //public $base_sql = "(select name from members) union (select name from member2s)";
+
+ // public function paginate($conditions,$fields,$order,$limit,$page=1,$recursive=null,$extra=array()){
+ //        if($page==0){$page = 1;}
+ //        $recursive = -1;
+ //        $offset = $page * $limit - $limit;
+ //        $sql = $this->base_sql . ' limit ' . $limit . ' offset ' . $offset;
+ //        return $this->query($sql);
+ //    }
+ //
+ //    public function paginateCount($conditions=null,$recursive=0,$extra=array()){
+ //        $this->recursive = $recursive;
+ //        $results = $this->query($this->base_sql);
+ //        return count($results);
+ //    }
 
 }

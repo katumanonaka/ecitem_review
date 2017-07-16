@@ -5,7 +5,8 @@
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <?php echo $this->Html->script('img.js'); ?>
     <h2><?php echo __('Articles'); ?></h2>
-
+    <!-- CakePHPのバージョン確認 -->
+    <?php //echo Configure::version(); ?>
     <div class="col-md-6">
         <h4>カテゴリー</h4>
         <?php
@@ -49,24 +50,24 @@
             <div class="article_chunk">
             <table ~~~ class="table-layout:fixed;width:100%;">
                 <tr>
-                    <td><?php echo h($article['articles']['id']); ?>&nbsp;</td>
+                    <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
                     <td>
                         <?php echo $this->Html->link(
-                            $article['users']['username'],
+                            $article['User']['username'],
                              array(
                                 'controller' => 'users',
                                 'action' => 'view',
-                                $article['users']['id']
+                                $article['User']['id']
                             )
                         ); ?>
                     </td>
                     <td>
                         <?php echo $this->Html->link(
-                            $article['products']['name'],
+                            $article['Product']['name'],
                             array(
                                 'controller' => 'products',
                                 'action' => 'view',
-                                $article['products']['id']
+                                $article['Product']['id']
                             )
                         ); ?>
                     </td>
@@ -75,7 +76,7 @@
                 <tr>
                     <!-- 記事の画像表示 -->
                     <td><?php
-                    $article_id = $article['articles']['id'];
+                    $article_id = $article['Article']['id'];
                     $id = "/img/" . $article_id . ".jpg" ;
 
                     // コピー元画像の指定
@@ -105,10 +106,10 @@
                 </tr>
                 <tr>
 
-                    <td><?php echo h($article['articles']['evaluation']); ?>&nbsp;</td>
+                    <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
                     <td class="actions">
                         <button type="button" class="btn btn-success">
-                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['articles']['id'])); ?>
+                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
                         </button>
                     </td>
                 </tr>

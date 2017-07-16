@@ -56,6 +56,7 @@ class ArticlesController extends AppController {
             'extra' => [
                 'type' => $sql
             ],
+            'order' => array('Article.id' => 'desc')
         ];
 
 
@@ -71,6 +72,7 @@ class ArticlesController extends AppController {
 
         $this->Paginator->settings = $query;
         $history_lists = $this->Paginator->paginate('Article');
+
         $this->set('selected_article', $history_lists);
 
         //$this->set('selected_article',$selected_articles);
@@ -115,7 +117,7 @@ class ArticlesController extends AppController {
 
             if(!in_array($extension , $check_array)) {
                 $this->Flash->error(__('画像ファイルを入れて下さい'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('action' => 'add'));
             }
 
             //保存先のパスを保存
@@ -142,15 +144,32 @@ class ArticlesController extends AppController {
             }
 
             //DB保存用にファイル名を保存する
+            // $this->request->data['Article']['id'] = 23;
             $this->request->data['Article']['image'] = $name;
 
-            if ($this->Article->save($this->request->data)) {
-                $this->Flash->success(__('The article has been saved.'));
-
+            // $this->request->data['Article']['created'] = '2017-07-17-19-01-49';
+            // $this->request->data['Article']['modified'] = '2017-07-17-19-01-49';
+            // $this->request->data['Article']['review'] = 1;
+            // $this->request->data['Article']['evaluation'] = 1;
+            // $this->request->data['Article']['great'] = 1;
+$test = $this->request->data;
+// debug($this->request->data);
+debug($test);
+// return;
+$save = $this->Article->save($test['Article']);
+debug($save);
+// 登録する項目（フィールド指定）
+$fields = array('user_id','product_id','review','evaluation','great','image');
+debug($fields);
+            // if($this->Article->save($test,false,$fields)) {
+            if($this->Article->save($test)) {
+                $this->Flash->success(__('記事を追加しました'));
                 return $this->redirect(array('action' => 'index'));
 
-            } else {
-                $this->Flash->error(__('記事の追加でエラーThe article could not be saved. Please, try again.'));
+            }   else {
+                //debug($this->log( $this->Article->getDataSource()->getLog(), LOG_DEBUG));
+                // debug($this->Article->validationErrors);
+                $this->Flash->error(__('記事を追加出来ませんでした'));
             }
         }
 

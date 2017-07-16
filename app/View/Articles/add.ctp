@@ -7,15 +7,13 @@
     <?php
         echo $this->Form->input('user_id');
         echo $this->Form->input('product_id');
-        //画像のアップロード
-        //echo $this->Form->input('image');
-             echo $this->Form->input('image', array(
-                 'label' => false,
-                 'type' => 'file','multiple'));
-
         echo $this->Form->input('review');
         echo $this->Form->input('evaluation');
         echo $this->Form->input('great');
+        //画像のアップロード
+        echo $this->Form->input('image', array(
+            'label' => false,
+            'type' => 'file','multiple'));
     ?>
     </fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
