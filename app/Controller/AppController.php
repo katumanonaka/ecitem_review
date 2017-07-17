@@ -63,4 +63,19 @@ class AppController extends Controller {
         // 認証コンポーネントをViewで利用可能にしておく
         $this->set('auth',$this->Auth);
     }
+
+    /**
+	 * コンストラクタ
+	 *
+	 * @param mixed $request
+	 * @param mixed $response
+	 */
+	// public function __construct($request = null, $response = null)
+	// {
+	// 	parent::__construct($request, $response);
+	// 	// デバッグ時のみDebugKitを利用する
+	// 	if (Configure::read('debug')) {
+	// 		$this->components[] = 'DebugKit.Toolbar';
+	// 	}
+	// }
 }

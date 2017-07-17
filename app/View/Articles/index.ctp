@@ -1,5 +1,5 @@
 <div class="articles index">
-    <?php //error_reporting(0);?>
+    <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>

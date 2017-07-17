@@ -70,6 +70,10 @@ Cache::config('default', array(
  * CakePlugin::load('DebugKit'); // Loads a single plugin named DebugKit
  */
     CakePlugin::load('DebugKit');
+    // if (Configure::read('debug')) {
+    //     /*本番環境ではfalseにしておく*/
+    //     Plugin::load('DebugKit', ['bootstrap' => true]);
+    // }
 /**
  * To prefer app translation over plugin translation, you can set
  *

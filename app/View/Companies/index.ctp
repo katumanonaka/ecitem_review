@@ -7,10 +7,11 @@
             <th><?php echo $this->Paginator->sort('name'); ?></th>
             <th><?php echo $this->Paginator->sort('url'); ?></th>
             <th class="actions"><?php echo __('Actions'); ?></th>
+            <th class="actions"><?php echo __('記事数'); ?></th>
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($companies as $company): ?>
+    <?php foreach ($companies as $id => $company): ?>
     <tr>
         <td><?php echo h($company['Company']['id']); ?>&nbsp;</td>
         <td><?php echo h($company['Company']['name']); ?>&nbsp;</td>
@@ -19,6 +20,11 @@
             <?php echo $this->Html->link(__('View'), array('action' => 'view', $company['Company']['id'])); ?>
             <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $company['Company']['id'])); ?>
             <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $company['Company']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $company['Company']['id']))); ?>
+        </td>
+        <td><?php
+            $id++;
+            echo $article_company_id_data[$id];
+            ?>
         </td>
     </tr>
 <?php endforeach; ?>

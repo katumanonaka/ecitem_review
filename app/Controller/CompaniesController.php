@@ -15,7 +15,7 @@ class CompaniesController extends AppController {
  *
  * @var array
  */
-    public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array('Paginator', 'Session', 'Flash','Custom');
 
 /**
  * index method
@@ -24,6 +24,17 @@ class CompaniesController extends AppController {
  */
     public function index() {
         $this->Company->recursive = 0;
+
+        //サイト情報の横に記事数を出力する処理
+        $table_name = "Product";
+        $field_name = "company_id";
+        //サイトの数を取得する
+        $this_list_count = count($this->Company->find('list'));
+        //各サイトごとの記事がアップされている数を取得する
+        $article_company_id_data = $this->Custom->get_article_count($table_name,$field_name,$this_list_count);
+
+        $this->set('article_company_id_data',$article_company_id_data);
+
         $this->set('companies', $this->Paginator->paginate());
     }
 

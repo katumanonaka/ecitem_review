@@ -58,8 +58,6 @@ class ArticlesController extends AppController {
             ],
             'order' => array('Article.id' => 'desc')
         ];
-
-
         // $this->paginate = $sql;
         // $this->set('selected_article', $this->paginate('Article'));
 
@@ -152,17 +150,17 @@ class ArticlesController extends AppController {
             // $this->request->data['Article']['review'] = 1;
             // $this->request->data['Article']['evaluation'] = 1;
             // $this->request->data['Article']['great'] = 1;
-$test = $this->request->data;
-// debug($this->request->data);
-debug($test);
-// return;
-$save = $this->Article->save($test['Article']);
-debug($save);
-// 登録する項目（フィールド指定）
-$fields = array('user_id','product_id','review','evaluation','great','image');
-debug($fields);
+// $test = $this->request->data;
+// // debug($this->request->data);
+// debug($test);
+// // return;
+// $save = $this->Article->save($test['Article']);
+// debug($save);
+// // 登録する項目（フィールド指定）
+// $fields = array('user_id','product_id','review','evaluation','great','image');
+// debug($fields);
             // if($this->Article->save($test,false,$fields)) {
-            if($this->Article->save($test)) {
+            if($this->Article->save($this->request->data)) {
                 $this->Flash->success(__('記事を追加しました'));
                 return $this->redirect(array('action' => 'index'));
 

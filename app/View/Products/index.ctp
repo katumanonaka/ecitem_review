@@ -3,6 +3,8 @@
 <?php echo $this->Html->script('img.js'); ?>
 <div class="products index">
     <h2><?php echo __('Products'); ?></h2>
+    <h2><?php //debug($data4); ?></h2>
+
     <div class="article_chunk">
         <table ~~~ class="table-layout:fixed;width:100%;">
             <tr>

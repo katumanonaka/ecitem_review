@@ -15,7 +15,7 @@ class ProductsController extends AppController {
  *
  * @var array
  */
-    public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array('Paginator', 'Session', 'Flash','Custom');
 
 /**
  * index method
@@ -30,6 +30,12 @@ class ProductsController extends AppController {
 
         $data2 = $this->Product->te();
         $this->set("te",$data2);
+
+        $data3 = $this->Custom->test();
+        $this->set("data3",$data3);
+
+        //$data4 = $this->Custom->top();
+        //$this->set("data4",$data4);
 
         //$this->set('products', $this->Paginator->paginate());
 
