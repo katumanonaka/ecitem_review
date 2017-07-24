@@ -8,7 +8,7 @@
     <!-- CakePHPのバージョン確認 -->
     <?php //echo Configure::version(); ?>
     <div class="col-md-6">
-        <h4>カテゴリー</h4>
+        <h4>-カテゴリー-</h4>
         <?php
             echo $this->Form->input('category', array(
             'multiple' => 'checkbox',
