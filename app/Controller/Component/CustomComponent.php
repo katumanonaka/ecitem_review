@@ -9,15 +9,16 @@ class CustomComponent extends Component {
 
     public function get_article_count($table_name,$field_name,$this_list_count) {
 
-        //検索用に文字列を繋げる
-        $table_field = $table_name . "." . $field_name;
         //記事データを取得できるようにする
         $article_data = ClassRegistry::init('Article');
 
-        //任意のテーブルからデータを取得する
+        //検索用に文字列を繋げる
+        $table_field = $table_name . "." . $field_name;
+
+        //記事データと記事データに付随する記事数を取得したいフィールド情報を取得する
         $article_list = $article_data->find('all', array('fields' => array($table_field)));
 
-        //取得したいフィードごとの記事の数を取得する
+        //記事ごとの目的のフィードの値を取得する
         for($i = 0; $i < count($article_list); $i++) {
             $field_id_list[$i] = $article_list[$i][$table_name][$field_name];
         }
@@ -25,22 +26,25 @@ class CustomComponent extends Component {
         //記事数を代入する
         $article_count = count($field_id_list);
 
-        //$field_countを初期化する
+        //記事数を取得したいフィールドの数分配列を用意する
         for($i = 1; $i <= $this_list_count; $i++) {
-            $field_count_id_count[$i] = 0;
+            $field_each_article_count[$i] = 0;
         }
 
-        //カテゴリーidごとの記事の数を配列に代入する
+        //記事数を取得したいフィールドごとの記事の数を配列に代入する
         for($i = 0; $i < $article_count; $i++) {
             for($j = 1; $j <= $this_list_count; $j++) {
+
                 if($field_id_list[$i] == $j) {
-                    $field_count_id_count[$j]++;
+                    //フィールドごとの検索をして記事データがあったら
+                    //記事の数を加算していく
+                    $field_each_article_count[$j]++;
                     continue;
                 }
             }
         }
 
-        return $field_count_id_count;
+        return $field_each_article_count;
     }
 
     public function top() {

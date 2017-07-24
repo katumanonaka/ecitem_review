@@ -23,17 +23,17 @@ class CompaniesController extends AppController {
  * @return void
  */
     public function index() {
-        $this->Company->recursive = 0;
+        //$this->Company->recursive = 0;
 
         //サイト情報の横に記事数を出力する処理
         $table_name = "Product";
         $field_name = "company_id";
         //サイトの数を取得する
-        $this_list_count = count($this->Company->find('list'));
-        //各サイトごとの記事がアップされている数を取得する
-        $article_company_id_data = $this->Custom->get_article_count($table_name,$field_name,$this_list_count);
+        $site_count = count($this->Company->find('list'));
+        //各サイトごとの記事数を取得する
+        $company_each_article_count = $this->Custom->get_article_count($table_name,$field_name,$site_count);
 
-        $this->set('article_company_id_data',$article_company_id_data);
+        $this->set('company_each_article_count',$company_each_article_count);
 
         $this->set('companies', $this->Paginator->paginate());
     }

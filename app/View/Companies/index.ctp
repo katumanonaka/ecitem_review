@@ -23,7 +23,7 @@
         </td>
         <td><?php
             $id++;
-            echo $article_company_id_data[$id];
+            echo $company_each_article_count[$id];
             ?>
         </td>
     </tr>
