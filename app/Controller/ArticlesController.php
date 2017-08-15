@@ -109,6 +109,15 @@ class ArticlesController extends AppController {
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
 
+            //ログイン中ユーザーのidを取得する
+            $user_id = $this->Session->read('Auth.User.id');
+            //記事データのユーザーIDにログイン中ユーザーのidを代入する
+            $this->request->data['Article']['user_id'] = $user_id;
+            // debug($user_id);
+            // debug($this->request->data('Article.user_id'));
+            // debug($this->request->data('Article'));
+            // return;
+
             //アップロードしたファイルの拡張子を取得する
             $extension = $this->request->data('Article.image.type');
             $check_array = array(0 => 'image/jpeg', 1 => 'image/jpg', 2 => 'image/gif', 3 => 'image/png');

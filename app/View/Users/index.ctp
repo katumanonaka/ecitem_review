@@ -1,19 +1,13 @@
 <div class="users index">
     <?php echo $this->element('top');?>
-    <h2><?php echo __('Users'); ?></h2>
+    <h2><?php echo __('ユーザー一覧'); ?></h2>
     <table cellpadding="0" cellspacing="0">
     <thead>
 
     <tr>
-            <th><?php echo $this->Paginator->sort('id'); ?></th>
-            <th><?php echo $this->Paginator->sort('name'); ?></th>
-            <th><?php echo $this->Paginator->sort('password'); ?></th>
-            <th><?php echo $this->Paginator->sort('thumbnail'); ?></th>
-            <th><?php echo $this->Paginator->sort('gender'); ?></th>
-            <th><?php echo $this->Paginator->sort('age'); ?></th>
-            <th><?php echo $this->Paginator->sort('job_id'); ?></th>
-            <th><?php echo $this->Paginator->sort('introduction'); ?></th>
-            <th class="actions"><?php echo __('Actions'); ?></th>
+            <th><?php echo $this->Paginator->sort('ID'); ?></th>
+            <th><?php echo $this->Paginator->sort('名前'); ?></th>
+            <th><?php echo $this->Paginator->sort('年齢'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -21,18 +15,9 @@
     <tr>
         <td><?php echo h($user['User']['id']); ?>&nbsp;</td>
         <td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-        <td><?php echo h($user['User']['password']); ?>&nbsp;</td>
-        <td><?php echo h($user['User']['thumbnail']); ?>&nbsp;</td>
-        <td><?php echo h($user['User']['gender']); ?>&nbsp;</td>
         <td><?php echo h($user['User']['age']); ?>&nbsp;</td>
-        <td>
-            <?php echo $this->Html->link($user['Job']['id'], array('controller' => 'jobs', 'action' => 'view', $user['Job']['id'])); ?>
-        </td>
-        <td><?php echo h($user['User']['introduction']); ?>&nbsp;</td>
         <td class="actions">
             <?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?>
-            <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
-            <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user['User']['id']))); ?>
         </td>
     </tr>
 <?php endforeach; ?>
@@ -41,7 +26,7 @@
     <p>
     <?php
     echo $this->Paginator->counter(array(
-        'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+        'format' => __('ページ {:page} / {:pages}')
     ));
     ?>    </p>
     <div class="paging">
@@ -53,15 +38,9 @@
     </div>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-        <li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('List Jobs'), array('controller' => 'jobs', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Job'), array('controller' => 'jobs', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('記事一覧へ'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
     </ul>
 </div>
 

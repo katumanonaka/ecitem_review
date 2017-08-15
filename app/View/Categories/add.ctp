@@ -1,19 +1,16 @@
 <div class="categories form">
 <?php echo $this->Form->create('Category'); ?>
     <fieldset>
-        <legend><?php echo __('Add Category'); ?></legend>
+        <legend><?php echo __('カテゴリー追加'); ?></legend>
     <?php
         echo $this->Form->input('name');
     ?>
     </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('追加')); ?>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-
-        <li><?php echo $this->Html->link(__('List Categories'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('カテゴリー一覧'), array('action' => 'index')); ?></li>
     </ul>
 </div>

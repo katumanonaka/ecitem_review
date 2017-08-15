@@ -4,7 +4,14 @@
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <?php echo $this->Html->script('img.js'); ?>
-    <h2><?php echo __('Articles'); ?></h2>
+    <h2><?php echo __('記事一覧'); ?></h2>
+    <?php
+    // echo $a = $this->Session->read('Auth.User.username');
+    // // echo $this->Auth->user('id');
+    // // debug($this->Auth->user());
+    // debug($this->Session->read('Auth.User.id'));//['Auth']));
+    // echo "aaaa";
+     ?>
     <!-- CakePHPのバージョン確認 -->
     <?php //echo Configure::version(); ?>
     <div class="col-md-6">
@@ -27,7 +34,7 @@
         ?>
     </div>
 
-    <?php echo $this->Form->end(__('Submit'));?>
+    <?php echo $this->Form->end(__('検索'));?>
 
     <table cellpadding="0" cellspacing="0">
         <div class="container">
@@ -108,8 +115,9 @@
 
                     <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
                     <td class="actions">
+                        <!-- <button type="button" class="btn btn-success"> -->
                         <button type="button" class="btn btn-success">
-                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
+                        <?php echo $this->Html->link(__('詳細'), array('action' => 'view', $article['Article']['id'])); ?>
                         </button>
                     </td>
                 </tr>
@@ -123,9 +131,9 @@
     </table>
     <p><?php
 
-     echo $this->Paginator->counter(array(
-         'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-     ));
+    //  echo $this->Paginator->counter(array(
+    //      'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+    //  ));
 
     echo $this->Paginator->counter(array(
         'format' => __('ページ {:page}/{:pages}')
@@ -149,14 +157,13 @@
     </div>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <h3><?php echo __(''); ?></h3>
     <ul>
-        <li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('UsersLogin'), array('controller' => 'users', 'action' => 'login')); ?> </li>
-        <li><?php echo $this->Html->link(__('UsersLogout'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('記事の追加'), array('action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('商品一覧'), array('controller' => 'products', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('カテゴリー一覧'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('企業一覧'), array('controller' => 'Companies', 'action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('ログアウト'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
     </ul>
 </div>

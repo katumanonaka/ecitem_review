@@ -7,4 +7,4 @@
         </fieldset>
 </div>
 
-<li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
+<li><?php echo $this->Html->link(__('ログイン画面へ'), array('action' => 'login')); ?></li>

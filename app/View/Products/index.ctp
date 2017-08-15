@@ -2,11 +2,11 @@
 <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
 <?php echo $this->Html->script('img.js'); ?>
 <div class="products index">
-    <h2><?php echo __('Products'); ?></h2>
+    <h2><?php echo __('商品一覧'); ?></h2>
     <h2><?php //debug($data4); ?></h2>
 
     <div class="article_chunk">
-        <table ~~~ class="table-layout:fixed;width:100%;">
+        <table class="table-layout:fixed;width:100%;">
             <tr>
                 <td>
                     <?php
@@ -67,15 +67,12 @@
     <thead>
 
     <tr>
-            <th><?php echo $this->Paginator->sort('id'); ?></th>
-            <th><?php echo $this->Paginator->sort('name'); ?></th>
-            <th><?php echo $this->Paginator->sort('company_id'); ?></th>
-            <th><?php echo $this->Paginator->sort('category_id'); ?></th>
-            <th><?php echo $this->Paginator->sort('price'); ?></th>
-            <th><?php echo $this->Paginator->sort('size'); ?></th>
-            <th><?php echo $this->Paginator->sort('effect'); ?></th>
-            <th><?php echo $this->Paginator->sort('how_to_use'); ?></th>
-            <th class="actions"><?php echo __('Actions'); ?></th>
+            <th><?php echo $this->Paginator->sort('ID'); ?></th>
+            <th><?php echo $this->Paginator->sort('名前'); ?></th>
+            <th><?php echo $this->Paginator->sort('企業名'); ?></th>
+            <th><?php echo $this->Paginator->sort('カテゴリー名'); ?></th>
+            <th><?php echo $this->Paginator->sort('値段'); ?></th>
+            <!-- <th class="actions"><?php echo __('Actions'); ?></th> -->
     </tr>
     </thead>
     <tbody>
@@ -90,13 +87,13 @@
             <?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
         </td>
         <td><?php echo h($product['Product']['price']); ?>&nbsp;</td>
-        <td><?php echo h($product['Product']['size']); ?>&nbsp;</td>
+        <!-- <td><?php echo h($product['Product']['size']); ?>&nbsp;</td>
         <td><?php echo h($product['Product']['effect']); ?>&nbsp;</td>
-        <td><?php echo h($product['Product']['how_to_use']); ?>&nbsp;</td>
+        <td><?php echo h($product['Product']['how_to_use']); ?>&nbsp;</td> -->
         <td class="actions">
-            <?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?>
-            <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?>
-            <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $product['Product']['id']))); ?>
+            <?php echo $this->Html->link(__('詳細表示'), array('action' => 'view', $product['Product']['id'])); ?>
+            <?php echo $this->Html->link(__('編集'), array('action' => 'edit', $product['Product']['id'])); ?>
+            <?php echo $this->Form->postLink(__('削除'), array('action' => 'delete', $product['Product']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $product['Product']['id']))); ?>
         </td>
     </tr>
 <?php endforeach; ?>
@@ -105,26 +102,20 @@
     <p>
     <?php
     echo $this->Paginator->counter(array(
-        'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-    ));
+        'format' => __('ページ {:page} / {:pages}')));
     ?>    </p>
     <div class="paging">
     <?php
-        echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+        echo $this->Paginator->prev('< ' . __('戻る'), array(), null, array('class' => 'prev disabled'));
         echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+        echo $this->Paginator->next(__('進む') . ' >', array(), null, array('class' => 'next disabled'));
     ?>
     </div>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-        <li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('List Companies'), array('controller' => 'companies', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Company'), array('controller' => 'companies', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('商品追加'), array('action' => 'add')); ?></li>
+        <li><?php echo $this->Html->link(__('記事一覧へ戻る'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
     </ul>
 </div>

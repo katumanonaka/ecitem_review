@@ -65,7 +65,8 @@ class UsersController extends AppController {
              =$this->Auth->password($this->request->data['User']['password']);
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved.'));
+                $this->Flash->success(__('保存成功'));
+                //return $this->redirect('controller'=>'articles','action'=>'index');
                 return $this->redirect(array('action' => 'index'));
             } else {
                 $this->Flash->error(__('The user could not be saved. Please, try again.'));
@@ -133,14 +134,12 @@ class UsersController extends AppController {
             if($this->Auth->login()) {
                 return $this->redirect($this->Auth->redirect());
             } else {
-                echo "ログイン失敗";
                 $this->Session->setFlash(__('ユーザ名かパスワードが間違っています'), 'default', array(), 'auth');
             }
         }
     }
 
     public function logout() {
-            echo "ログアウト！";
             $this->Auth->logout();
     }
 
