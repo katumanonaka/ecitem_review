@@ -1,0 +1,36 @@
+.test {
+
+}
+.category {
+    border: solid #00bfff;
+    background-color: #fffacd;
+    padding: 0 40px;
+}
+
+#header {
+    padding: 10px auto;
+    background-color: #fffacd;
+    border: solid #00bfff;
+}
+
+.main {
+    padding: 10px auto;
+    margin: 10px;
+    background-color: #fffacd;
+    border: solid #00bfff;
+}
+
+.page {
+    list-style:none;
+}
+.page li {
+    display: inline-block;
+    width: 20px;
+}
+.article_chunk {
+    /*padding: 50px;*/
+    border: solid #fffacd;
+}
+.article_chunk:hover {
+    border: solid #00bfff;
+}

@@ -12,7 +12,7 @@
 
     <!-- Le styles -->
     <?php echo $this->Html->css('bootstrap.min'); ?>
-    <?php //echo $this->Html->css('style'); ?>
+    <?php echo $this->Html->css('style'); ?>
 
     <style>
     body {
@@ -20,6 +20,7 @@
     }
     </style>
     <?php echo $this->Html->css('bootstrap-responsive.min'); ?>
+    <?php echo $this->Html->css('layout.css'); ?>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -71,12 +72,20 @@
 
         <?php //debug($this->Auth->user()); ?>
         <?php //debug($this->Auth->user('id')); ?>
+    </div>
 
+    <main class="main">
         <?php echo $this->Session->flash(); ?>
-
         <?php echo $this->fetch('content'); ?>
+    </main>
 
-    </div> <!-- /container -->
+        <!-- <div class="test">
+            <p>てすと</p>
+        </div> -->
+
+    <!-- </div>  -->
+    <!-- /container -->
+
 
     <footer class="footer">
         <div class="container">

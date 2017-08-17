@@ -104,13 +104,20 @@
     echo $this->Paginator->counter(array(
         'format' => __('ページ {:page} / {:pages}')));
     ?>    </p>
-    <div class="paging">
+    <!-- <div class="paging">
     <?php
         echo $this->Paginator->prev('< ' . __('戻る'), array(), null, array('class' => 'prev disabled'));
         echo $this->Paginator->numbers(array('separator' => ''));
         echo $this->Paginator->next(__('進む') . ' >', array(), null, array('class' => 'next disabled'));
     ?>
-    </div>
+    </div> -->
+    <ul class="page">
+        <li><?php echo $this->Paginator->first('<<' , array()); ?></li>
+        <li><?php echo $this->Paginator->prev('<', array(), null, array('class' => 'prev disabled')); ?></li>
+        <li><?php echo $this->Paginator->numbers(array('separator' => '')); ?></li>
+        <li><?php echo $this->Paginator->next('>', array(), null, array('class' => 'next disabled')); ?></li>
+        <li><?php echo $this->Paginator->last('>>', array()); ?></li>
+    </ul>
 </div>
 <div class="actions">
     <br>

@@ -1,9 +1,9 @@
 <div class="articles index">
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
-    <?php echo $this->Html->css('style.css'); ?>
+    <?php echo $this->Html->css('layout.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
-    <?php echo $this->Html->script('img.js'); ?>
+    <!-- <?php echo $this->Html->script('img.js'); ?> -->
     <h2><?php echo __('記事一覧'); ?></h2>
     <?php
     // echo $a = $this->Session->read('Auth.User.username');
@@ -13,8 +13,8 @@
     // echo "aaaa";
      ?>
     <!-- CakePHPのバージョン確認 -->
-    <?php //echo Configure::version(); ?>
-    <div class="col-md-6">
+    <?php //echo Configure::version();   ?>
+    <div class="col-md-6 category">
         <h4>カテゴリー</h4>
         <?php
             echo $this->Form->input('category', array(
@@ -24,7 +24,7 @@
         ?>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 category">
         <h4>評価指数</h4>
         <?php
             echo $this->Form->input('evaluation', array(
@@ -55,7 +55,7 @@
         <!-- 記事ひとまとまり -->
         <div class="col-md-6">
             <div class="article_chunk">
-            <table ~~~ class="table-layout:fixed;width:100%;">
+            <table class="table-layout:fixed;width:100%;">
                 <tr>
                     <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
                     <td>
@@ -129,26 +129,17 @@
     </div>
     </tbody>
     </table>
-    <p><?php
+    <p><?php echo $this->Paginator->counter(array('format' => ('ページ {:page}/{:pages}')));?></p>
 
-    //  echo $this->Paginator->counter(array(
-    //      'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-    //  ));
-
-    echo $this->Paginator->counter(array(
-        'format' => __('ページ {:page}/{:pages}')
-    ));
-
-    ?></p>
-    <div class="paging">
-    <?php
-        echo $this->Paginator->first('最初のページへ' , array());
-        echo $this->Paginator->prev('戻る', array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next('進む', array(), null, array('class' => 'next disabled'));
-        echo $this->Paginator->last('最後のページへ', array());
-    ?>
-    </div>
+    <!-- <div class="paging"> -->
+        <ul class="page">
+            <li><?php echo $this->Paginator->first('<<' , array()); ?></li>
+            <li><?php echo $this->Paginator->prev('<', array(), null, array('class' => 'prev disabled')); ?></li>
+            <li><?php echo $this->Paginator->numbers(array('separator' => '')); ?></li>
+            <li><?php echo $this->Paginator->next('>', array(), null, array('class' => 'next disabled')); ?></li>
+            <li><?php echo $this->Paginator->last('>>', array()); ?></li>
+        </ul>
+    <!-- </div> -->
 
     <div>
         <?php

@@ -9,3 +9,9 @@
     /*border: 5px solid #e6e6e6;*/
 	/*background: #333333;*/
 }
+
+.test {
+    margin: 255px;
+    border: solid #ff3377;
+    background-color: #3355ff;
+}
