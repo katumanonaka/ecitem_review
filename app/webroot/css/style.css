@@ -1,17 +1,36 @@
+.test {
 
-.view_btn {
-    background-color: #3498ff;
-
+}
+.category {
+    border: solid #00bfff;
+    background-color: #fffacd;
+    padding: 0 40px;
 }
 
 #header {
-    color :#4422ff;
-    /*border: 5px solid #e6e6e6;*/
-	/*background: #333333;*/
+    padding: 10px auto;
+    background-color: #fffacd;
+    border: solid #00bfff;
 }
 
-.test {
-    margin: 255px;
-    border: solid #ff3377;
-    background-color: #3355ff;
+.main {
+    padding: 10px auto;
+    margin: 10px;
+    background-color: #fffacd;
+    border: solid #ffbf00;
+}
+
+.page {
+    list-style:none;
+}
+.page li {
+    display: inline-block;
+    width: 20px;
+}
+.article_chunk {
+    /*padding: 50px;*/
+    border: solid #fffacd;
+}
+.article_chunk:hover {
+    border: solid #00bfff;
 }

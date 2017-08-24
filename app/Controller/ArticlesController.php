@@ -108,7 +108,6 @@ class ArticlesController extends AppController {
 
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
-
             //ログイン中ユーザーのidを取得する
             $user_id = $this->Session->read('Auth.User.id');
             //記事データのユーザーIDにログイン中ユーザーのidを代入する

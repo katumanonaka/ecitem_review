@@ -1,7 +1,8 @@
 <div class="articles index">
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
-    <?php echo $this->Html->css('layout.css'); ?>
+    <?php echo $this->Html->css('style.css'); ?>
+    <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <!-- <?php echo $this->Html->script('img.js'); ?> -->
     <h2><?php echo __('記事一覧'); ?></h2>
@@ -13,7 +14,7 @@
     // echo "aaaa";
      ?>
     <!-- CakePHPのバージョン確認 -->
-    <?php //echo Configure::version();   ?>
+
     <div class="col-md-6 category">
         <h4>カテゴリー</h4>
         <?php
@@ -53,76 +54,68 @@
     <?php //foreach ($articles as $article): ?>
     <?php foreach ($selected_article as $article): ?>
         <!-- 記事ひとまとまり -->
-        <div class="col-md-6">
-            <div class="article_chunk">
-            <table class="table-layout:fixed;width:100%;">
-                <tr>
-                    <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
-                    <td>
-                        <?php echo $this->Html->link(
+        <div class="col-md-6 article_chunk">
+                <!-- <table class="table-layout"> -->
+                    <!-- <div class="image"> -->
+                        <!-- 記事の画像表示 -->
+                        <?php
+                        $article_id = $article['Article']['id'];
+                        $id = "/img/" . $article_id . ".jpg" ;
+
+                        // コピー元画像の指定
+                        $path = WWW_ROOT . "upimg/" . $article_id  . ".jpg";
+                        //出力先のファイル
+                        $file = WWW_ROOT . "img/" . $article_id  . ".jpg";
+
+                        // ファイル名から、画像インスタンスを生成
+                        $in = imagecreatefromjpeg($path);
+                        //元画像サイズ取得
+                        $size = GetImageSize($path);
+                        $width = 200;
+                        $height = 200;
+                        //サイズを指定した背景画像を生成
+                        $out = ImageCreateTrueColor($width, $height);
+                        //サイズ変更・コピー
+                        ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
+                        //画像保存
+                        imagejpeg($out, $file ,100);
+
+                        echo $this->Html->image($id, array('alt' => 'item'));
+
+                        ImageDestroy($in);
+                        ImageDestroy($out);
+                        ?>
+                    <!-- </div> -->
+                    <!-- <td class="article_id"> -->
+                    <div class="info">
+                        <p><?php echo "記事ID" . h($article['Article']['id']); ?></p>
+                        <p><?php echo "評価" . h($article['Article']['evaluation']); ?>&nbsp;</p>
+                        <!-- &nbsp;</td> -->
+                        <p><?php echo $this->Html->link(
                             $article['User']['username'],
-                             array(
+                            array(
                                 'controller' => 'users',
                                 'action' => 'view',
                                 $article['User']['id']
                             )
-                        ); ?>
-                    </td>
-                    <td>
-                        <?php echo $this->Html->link(
-                            $article['Product']['name'],
-                            array(
-                                'controller' => 'products',
-                                'action' => 'view',
-                                $article['Product']['id']
-                            )
-                        ); ?>
-                    </td>
-
-                </tr>
-                <tr>
-                    <!-- 記事の画像表示 -->
-                    <td><?php
-                    $article_id = $article['Article']['id'];
-                    $id = "/img/" . $article_id . ".jpg" ;
-
-                    // コピー元画像の指定
-                    $path = WWW_ROOT . "upimg/" . $article_id  . ".jpg";
-                    //出力先のファイル
-                    $file = WWW_ROOT . "img/" . $article_id  . ".jpg";
-
-                    // ファイル名から、画像インスタンスを生成
-                    $in = imagecreatefromjpeg($path);
-                    //元画像サイズ取得
-                    $size = GetImageSize($path);
-                    $width = 200;
-                    $height = 200;
-                    //サイズを指定した背景画像を生成
-                    $out = ImageCreateTrueColor($width, $height);
-                    //サイズ変更・コピー
-                    ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
-                    //画像保存
-                    imagejpeg($out, $file ,100);
-
-                    echo $this->Html->image($id, array('alt' => 'item'));
-
-                    ImageDestroy($in);
-                    ImageDestroy($out);
-                    ?> </td>
-
-                </tr>
-                <tr>
-
-                    <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
-                    <td class="actions">
-                        <!-- <button type="button" class="btn btn-success"> -->
-                        <button type="button" class="btn btn-success">
-                        <?php echo $this->Html->link(__('詳細'), array('action' => 'view', $article['Article']['id'])); ?>
-                        </button>
-                    </td>
-                </tr>
-            </table>
-        </div>
+                        ); ?></p>
+                        <p><?php echo $this->Html->link(
+                                $article['Product']['name'],
+                                array(
+                                    'controller' => 'products',
+                                    'action' => 'view',
+                                    $article['Product']['id']
+                                )
+                            ); ?>
+                        </p>
+                        <p class="actions">
+                            <!-- <button type="button" class="btn btn-success"> -->
+                            <button type="button" class="btn btn-success">
+                            <?php echo $this->Html->link(__('詳細'), array('action' => 'view', $article['Article']['id'])); ?>
+                            </button>
+                        </p>
+                    </div>
+                <!-- </table> -->
         </div>
     <?php endforeach; ?>
     </div>

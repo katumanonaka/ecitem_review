@@ -20,7 +20,7 @@
     }
     </style>
     <?php echo $this->Html->css('bootstrap-responsive.min'); ?>
-    <?php echo $this->Html->css('layout.css'); ?>
+    <?php echo $this->Html->css('page_style.css'); ?>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
