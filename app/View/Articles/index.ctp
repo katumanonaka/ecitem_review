@@ -1,10 +1,12 @@
-<div class="articles index">
+<div class="articles_index">
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <!-- <?php echo $this->Html->script('img.js'); ?> -->
+
+
     <h2><?php echo __('記事一覧'); ?></h2>
     <?php
     // echo $a = $this->Session->read('Auth.User.username');
@@ -13,9 +15,9 @@
     // debug($this->Session->read('Auth.User.id'));//['Auth']));
     // echo "aaaa";
      ?>
-    <!-- CakePHPのバージョン確認 -->
 
-    <div class="col-md-6 category">
+<?php echo $this->element('menu'); ?>
+    <div class="col-md-5 category">
         <h4>カテゴリー</h4>
         <?php
             echo $this->Form->input('category', array(
@@ -25,7 +27,7 @@
         ?>
     </div>
 
-    <div class="col-md-6 category">
+    <div class="col-md-4 category">
         <h4>評価指数</h4>
         <?php
             echo $this->Form->input('evaluation', array(
@@ -139,15 +141,16 @@
 
         ?>
     </div>
-</div>
-<div class="actions">
-    <h3><?php echo __(''); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('記事の追加'), array('action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('商品一覧'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('カテゴリー一覧'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('企業一覧'), array('controller' => 'Companies', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('ログアウト'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
-    </ul>
+
+    <div class="actions">
+        <h4><?php echo "メニュー"; ?></h3>
+        <ul>
+            <li><?php echo $this->Html->link(__('記事の追加'), array('action' => 'add')); ?></li>
+            <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('商品一覧'), array('controller' => 'products', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('カテゴリー一覧'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('企業一覧'), array('controller' => 'Companies', 'action' => 'index')); ?> </li>
+            <li><?php echo $this->Html->link(__('ログアウト'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
+        </ul>
+    </div>
 </div>

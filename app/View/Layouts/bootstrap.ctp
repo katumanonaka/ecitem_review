@@ -20,7 +20,6 @@
     }
     </style>
     <?php echo $this->Html->css('bootstrap-responsive.min'); ?>
-    <?php echo $this->Html->css('page_style.css'); ?>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -66,7 +65,7 @@
         </div>
     </div>
 
-
+    <!-- タイトル -->
     <div class="container" id="header">
         <h1><?php echo $this->Html->link(__('EC商品レビュー'), array('controller' => 'articles', 'action' => 'index')); ?> </h1>
 
@@ -74,7 +73,9 @@
         <?php //debug($this->Auth->user('id')); ?>
     </div>
 
+    <!-- メイン -->
     <main class="main">
+
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
     </main>
@@ -85,7 +86,6 @@
 
     <!-- </div>  -->
     <!-- /container -->
-
 
     <footer class="footer">
         <div class="container">
