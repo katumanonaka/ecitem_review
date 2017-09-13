@@ -4,7 +4,10 @@
     <?php echo $this->Html->css('style.css'); ?>
     <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
-    <!-- <?php echo $this->Html->script('img.js'); ?> -->
+    <?php echo $this->Html->script('script.js'); ?>
+    <?php echo $this->Html->script('menu.js'); ?>
+    <?php echo $this->Html->script('modal.js'); ?>
+    <?php //echo $this->Html->script('menu.js'); ?>
 
 
     <h2><?php echo __('記事一覧'); ?></h2>
@@ -18,13 +21,13 @@
 
 <?php echo $this->element('menu'); ?>
     <div class="col-md-5 category">
-        <h4>カテゴリー</h4>
-        <?php
+        <h4 class="category_content">カテゴリー</h4>
+        <div class="content"><?php
             echo $this->Form->input('category', array(
             'multiple' => 'checkbox',
             'options' => $category_id,
             ));
-        ?>
+        ?></div>
     </div>
 
     <div class="col-md-4 category">
@@ -60,6 +63,7 @@
                 <!-- <table class="table-layout"> -->
                     <!-- <div class="image"> -->
                         <!-- 記事の画像表示 -->
+
                         <?php
                         $article_id = $article['Article']['id'];
                         $id = "/img/" . $article_id . ".jpg" ;
@@ -82,8 +86,22 @@
                         //画像保存
                         imagejpeg($out, $file ,100);
 
+                        $temp = WWW_ROOT;
+                        $temp = $temp . "img/29.jpg";
+                        ?>
+                        <!-- <div class="icon2"> -->
+                        <a href="#" class="icon">
+                        <?php
                         echo $this->Html->image($id, array('alt' => 'item'));
-
+                        //debug(WWW_ROOT."img/21.jpg");
+                        //debug($temp);
+                        // echo '<img src='.$temp.'  alt="test" >';
+                        ?>
+                        <!-- <img src=<?=$temp?> > -->
+                        </a>
+                        <!-- </div> -->
+                        <!-- <img src="WWW_ROOT $id"/> -->
+                        <?php
                         ImageDestroy($in);
                         ImageDestroy($out);
                         ?>
@@ -124,6 +142,8 @@
     </div>
     </tbody>
     </table>
+    <div id="glayLayer"></div>
+    <div id="overLayer"><img src='<?=$temp?>'/></div>
     <p><?php echo $this->Paginator->counter(array('format' => ('ページ {:page}/{:pages}')));?></p>
 
     <!-- <div class="paging"> -->

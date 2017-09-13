@@ -65,8 +65,54 @@
 }
 
 /*---------------------------------------------------------
-* メニュー
+ メニュー
 ---------------------------------------------------------*/
 .menu {
     border: solid #56df55;
+}
+
+.menu dt {
+    background-color: #afeeee;
+}
+.menu dt.over {
+    /*background: #4169e1;*/
+    cursor:pointer;
+}
+.menu dt.selected {
+    /*background-color: #00bfff;*/
+    cursor:default;
+    color:black;
+}
+.menu dd {
+    background-color: #e0ffff;
+}
+
+
+/*---------------------------------------------------------
+ モーダル画像
+---------------------------------------------------------*/
+#glayLayer {
+    display: none;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: black;
+    opacity:0.60;
+    filter:alpha(opacity=60);
+}
+#overLayer {
+    display: none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-244px;
+    margin-left:-325px;
+}
+* html #glayLayer {
+    position:absolute;
+}
+* html #overLayer {
+    position: absolute;
 }
