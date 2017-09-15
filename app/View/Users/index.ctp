@@ -1,9 +1,14 @@
+<?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
+<?php echo $this->Html->script('menu.js'); ?>
 <div class="users index">
-    <?php echo $this->element('top');?>
+<?php echo $this->Html->script('menu.js'); ?>
+
     <h2><?php echo __('ユーザー一覧'); ?></h2>
+    <div class="product_menu">
+        <?php echo $this->element('menu');?>
+    </div>
     <table cellpadding="0" cellspacing="0">
     <thead>
-
     <tr>
             <th><?php echo $this->Paginator->sort('ID'); ?></th>
             <th><?php echo $this->Paginator->sort('名前'); ?></th>

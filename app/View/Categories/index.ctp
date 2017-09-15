@@ -1,5 +1,8 @@
 <div class="categories index">
     <h2><?php echo __('カテゴリー一覧'); ?></h2>
+    <div class="product_menu">
+    <?php echo $this->element('menu');?>
+    </div>
     <table cellpadding="0" cellspacing="0">
     <thead>
     <tr>

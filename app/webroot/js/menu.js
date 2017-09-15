@@ -15,7 +15,7 @@ $(function() {
     // }).mounseout(function(){
     //     $(this).removeClass("over");
     // });
-
+console.log("aaaaa");
     //最初は全てのパネルを非表示に
     $('#panel > dd').hide();
     $("dt:first").addClass("selected");

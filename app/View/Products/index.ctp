@@ -1,10 +1,11 @@
 <?php echo $this->Html->css('style.css'); ?>
-<?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
 <?php echo $this->Html->script('img.js'); ?>
 <div class="products index">
     <h2><?php echo __('商品一覧'); ?></h2>
     <h2><?php //debug($data4); ?></h2>
-
+<div class="product_menu">
+<?php echo $this->element('menu');?>
+</div>
     <div class="article_chunk">
         <table class="table-layout:fixed;width:100%;">
             <tr>

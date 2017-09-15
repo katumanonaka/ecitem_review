@@ -2,13 +2,9 @@
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
-    <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <?php echo $this->Html->script('script.js'); ?>
-    <?php echo $this->Html->script('menu.js'); ?>
     <?php echo $this->Html->script('modal.js'); ?>
-    <?php //echo $this->Html->script('menu.js'); ?>
-
 
     <h2><?php echo __('記事一覧'); ?></h2>
     <?php

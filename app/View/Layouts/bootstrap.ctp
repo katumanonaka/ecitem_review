@@ -13,7 +13,6 @@
     <!-- Le styles -->
     <?php echo $this->Html->css('bootstrap.min'); ?>
     <?php echo $this->Html->css('style'); ?>
-
     <style>
     body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -40,6 +39,7 @@
     //画面のトップへ戻るボタン
     echo $this->element('top');
     ?>
+    <?php echo $this->Html->script('menu.js'); ?>
 </head>
 
 <body>
@@ -65,6 +65,7 @@
         </div>
     </div>
 
+    <?php echo $this->Html->css('page_style.css'); ?>
     <!-- タイトル -->
     <div class="container" id="header">
         <h1><?php echo $this->Html->link(__('EC商品レビュー'), array('controller' => 'articles', 'action' => 'index')); ?> </h1>
@@ -75,7 +76,6 @@
 
     <!-- メイン -->
     <main class="main">
-
         <?php echo $this->Session->flash(); ?>
         <?php echo $this->fetch('content'); ?>
     </main>

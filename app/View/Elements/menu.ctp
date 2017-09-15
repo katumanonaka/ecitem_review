@@ -1,10 +1,13 @@
+<?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
+<?php echo $this->Html->script('menu.js'); ?>
+
 <div class="menu col-md-3">
-    <h4><?php echo "メニュー"; ?></h3>
+    <h4><?php echo "メニュー"; ?></h4>
     <dl id="panel">
         <dt><?="記事"?></dt>
         <dd><?php echo $this->Html->link(__('記事一覧'), array('controller' => 'Articles', 'action' => 'index')); ?>
             <?php echo $this->Html->link(__('記事の追加'), array('controller' => 'Articles', 'action' => 'add')); ?></dd>
-        <dt class="owwwo"><?="ユーザー"?></dt>
+        <dt><?="ユーザー"?></dt>
         <dd><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'users', 'action' => 'index')); ?> </dd>
         <dt><?="商品"?></dt>
         <dd><?php echo $this->Html->link(__('商品一覧'), array('controller' => 'products', 'action' => 'index')); ?>
