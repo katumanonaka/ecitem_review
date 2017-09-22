@@ -2,9 +2,10 @@
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
+    <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
     <?php echo $this->Html->script('script.js'); ?>
-    <?php echo $this->Html->script('modal.js'); ?>
+    <?php echo $this->Html->script('modal'); ?>
 
     <h2><?php echo __('記事一覧'); ?></h2>
     <?php
@@ -83,26 +84,24 @@
                         imagejpeg($out, $file ,100);
 
                         $temp = WWW_ROOT;
-                        $temp = $temp . "img/29.jpg";
+                        $temp = $temp . "img/". $article_id .".jpg";
+                        // $img_path = "img/" . $article_id . ".jpg";
+                        //サーバーの画像を持ってきているので本番環境では上手くいくはず
+                        $img_path = "http://ecitemreview.main.jp/ecitem_review/img/" . $article_id . ".jpg";
                         ?>
-                        <!-- <div class="icon2"> -->
-                        <a href="#" class="icon">
+
+                        <a href=<?=$img_path?> class="icon">
                         <?php
+                        // 記事の商品画像表示
                         echo $this->Html->image($id, array('alt' => 'item'));
-                        //debug(WWW_ROOT."img/21.jpg");
-                        //debug($temp);
-                        // echo '<img src='.$temp.'  alt="test" >';
                         ?>
-                        <!-- <img src=<?=$temp?> > -->
                         </a>
-                        <!-- </div> -->
-                        <!-- <img src="WWW_ROOT $id"/> -->
+
                         <?php
                         ImageDestroy($in);
                         ImageDestroy($out);
                         ?>
-                    <!-- </div> -->
-                    <!-- <td class="article_id"> -->
+
                     <div class="info">
                         <p><?php echo "記事ID" . h($article['Article']['id']); ?></p>
                         <p><?php echo "評価" . h($article['Article']['evaluation']); ?>&nbsp;</p>
@@ -138,8 +137,7 @@
     </div>
     </tbody>
     </table>
-    <div id="glayLayer"></div>
-    <div id="overLayer"><img src='<?=$temp?>'/></div>
+
     <p><?php echo $this->Paginator->counter(array('format' => ('ページ {:page}/{:pages}')));?></p>
 
     <!-- <div class="paging"> -->
