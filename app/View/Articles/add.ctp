@@ -5,8 +5,7 @@
     <fieldset>
         <legend><?php echo __('記事の追加'); ?></legend>
     <?php
-        // echo $this->Form->input('user_id');
-        echo $this->Form->input('product_id');
+        echo $this->Form->input('product_id'); //, array('label' => array('text' => '商品名'));
         echo $this->Form->input('review');
         echo $this->Form->input('evaluation');
         echo $this->Form->input('great');

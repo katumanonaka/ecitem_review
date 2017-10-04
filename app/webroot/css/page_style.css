@@ -119,3 +119,20 @@
 * html #overLayer {
     position: absolute;
 }
+
+/*---------------------------------------------------------
+* スライドメニュー
+---------------------------------------------------------*/
+nav {
+    position: fixed;
+    top:0;
+    bottom:0;
+    width:250px;
+    margin-left:-250px;
+    background:#5C7079;
+}
+#slide_btn {
+    position:fixed;
+    left:0px;
+    top:90px;
+}
