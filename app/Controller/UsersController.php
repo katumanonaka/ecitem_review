@@ -123,9 +123,9 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    //全てのメソッドで呼び出される
+    //未ログインでもloginとaddとlogoutにはアクセスできるようにする
     public function beforeFilter() {
-        $this->Auth->allow('login','add','logout','edit','view','index');
+        $this->Auth->allow('login','add','logout');//,'edit','view','index');
     }
 
     public function login() {
