@@ -1,0 +1,138 @@
+.test {
+
+}
+.category {
+    border: solid #00bfff;
+    background-color: #fffacd;
+    padding: 0 40px;
+}
+
+#header {
+    padding: 10px auto;
+    background-color: #fffacd;
+    border: solid #00bfff;
+}
+
+/*---------------------------------------------------------
+* 記事一覧画面
+---------------------------------------------------------*/
+.articles_index {
+    border: solid #ff4500;
+    display: block;
+}
+
+/*---------------------------------------------------------
+* レイアウト
+---------------------------------------------------------*/
+.main {
+    display: block;
+    padding: 10px auto;
+    margin: 10px;
+    background-color: #fffacd;
+    border: solid #00bfff;
+}
+.page {
+    list-style:none;
+}
+.page li {
+    display: inline-block;
+    width: 20px;
+}
+.article_chunk {
+    /*padding: 50px;*/
+    border: solid #fffacd;
+    /*position:relative;*/
+}
+.article_chunk:hover {
+    border: solid #00bfff;
+}
+.table-layout {
+    padding: -30px;
+}
+.article_id {
+    padding: 0;
+    border: solid #66cdaa;
+}
+.article_chunk .info {
+    position: relative;
+    top :50px;
+    left : 50px;
+    margin: 10px 10px 10px 10px;
+    /*padding-top: 80px;*/
+    display: inline-block;
+    /*position: relative;*/
+    /*float: left;*/
+}
+/*---------------------------------------------------------
+ メニュー
+---------------------------------------------------------*/
+.menu {
+    border: solid #56df55;
+}
+
+.menu dt {
+    background-color: #afeeee;
+}
+.menu dt.over {
+    /*background: #4169e1;*/
+    cursor:pointer;
+}
+.menu dt.selected {
+    /*background-color: #00bfff;*/
+    cursor:default;
+    color:black;
+}
+.menu dd {
+    background-color: #e0ffff;
+}
+/*---------------------------------------------------------
+ 商品メニュー
+---------------------------------------------------------*/
+.product_menu {
+    padding: 0px 10px 100px 10px;
+}
+/*---------------------------------------------------------
+ モーダル画像
+---------------------------------------------------------*/
+#glayLayer {
+    display: none;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: black;
+    opacity:0.60;
+    filter:alpha(opacity=60);
+}
+#overLayer {
+    display: none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-244px;
+    margin-left:-325px;
+}
+* html #glayLayer {
+    position:absolute;
+}
+* html #overLayer {
+    position: absolute;
+}
+
+/*---------------------------------------------------------
+* スライドメニュー
+---------------------------------------------------------*/
+nav {
+    position: fixed;
+    top:0;
+    bottom:0;
+    width:250px;
+    margin-left:-250px;
+    background:#5C7079;
+}
+#slide_btn {
+    position:fixed;
+    left:0px;
+    top:90px;
+}

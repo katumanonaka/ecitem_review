@@ -12,8 +12,7 @@
 
     <!-- Le styles -->
     <?php echo $this->Html->css('bootstrap.min'); ?>
-    <?php //echo $this->Html->css('style'); ?>
-
+    <?php echo $this->Html->css('style'); ?>
     <style>
     body {
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -40,6 +39,7 @@
     //画面のトップへ戻るボタン
     echo $this->element('top');
     ?>
+    <?php echo $this->Html->script('menu.js'); ?>
 </head>
 
 <body>
@@ -65,18 +65,27 @@
         </div>
     </div>
 
-
+    <?php echo $this->Html->css('page_style.css'); ?>
+    <!-- タイトル -->
     <div class="container" id="header">
         <h1><?php echo $this->Html->link(__('EC商品レビュー'), array('controller' => 'articles', 'action' => 'index')); ?> </h1>
 
         <?php //debug($this->Auth->user()); ?>
         <?php //debug($this->Auth->user('id')); ?>
+    </div>
 
+    <!-- メイン -->
+    <main class="main">
         <?php echo $this->Session->flash(); ?>
-
         <?php echo $this->fetch('content'); ?>
+    </main>
 
-    </div> <!-- /container -->
+        <!-- <div class="test">
+            <p>てすと</p>
+        </div> -->
+
+    <!-- </div>  -->
+    <!-- /container -->
 
     <footer class="footer">
         <div class="container">
@@ -89,7 +98,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <?php echo $this->Html->script('bootstrap.min'); ?>
-    <?php echo $this->fetch('script'); ?>
 
 </body>
 </html>

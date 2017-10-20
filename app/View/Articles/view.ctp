@@ -1,5 +1,5 @@
 <div class="articles view">
-<h2><?php echo __('Article'); ?></h2>
+<h2><?php echo __('記事詳細'); ?></h2>
     <dl>
         <dt><?php echo __('Id'); ?></dt>
         <dd>
@@ -48,13 +48,13 @@
         </dd>
     </dl>
 
-    <h2>Comments</h2>
+    <h2>コメント一覧</h2>
     <!-- コメントテーブルからコメント一覧を表示する -->
     <?php foreach($article['Comment'] as $comment):?>
         <li id="comment_<?php echo h($comment['id']); ?>">
             <?php echo h($comment['content']) ?>
             <?php //debug($comment);?>
-            <?php echo $this->Form->postLink(__('Delete'),
+            <?php echo $this->Form->postLink(__('削除'),
                 array(
                     'controller'=>'comments' ,
                     'action' => 'delete',
@@ -68,7 +68,7 @@
         </li>
     <?php endforeach; ?>
 
-    <h2>Add Comment</h2>
+    <h2>コメント追加</h2>
     <!-- コメントを追加する -->
     <?php
     // エラー出力をしない
@@ -80,17 +80,11 @@
      ?>
 
 </div>
+
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-        <li><?php echo $this->Html->link(__('Edit Article'), array('action' => 'edit', $article['Article']['id'])); ?> </li>
-        <li><?php echo $this->Form->postLink(__('Delete Article'), array('action' => 'delete', $article['Article']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $article['Article']['id']))); ?> </li>
-        <li><?php echo $this->Html->link(__('List Articles'), array('action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('記事一覧に戻る'), array('action' => 'index')); ?> </li>
     </ul>
 </div>
 

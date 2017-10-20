@@ -1,23 +1,45 @@
-<div class="articles index">
+<?php echo $this->element('menu'); ?>
+
+<div class="articles_index">
     <?php error_reporting(0);?>
     <?php echo $this->Form->create('Article'); ?>
     <?php echo $this->Html->css('style.css'); ?>
+    <?php echo $this->Html->css('page_style.css'); ?>
     <?php echo $this->Html->script('jquery-3.2.0.min.js'); ?>
-    <?php echo $this->Html->script('img.js'); ?>
-    <h2><?php echo __('Articles'); ?></h2>
-    <!-- CakePHPのバージョン確認 -->
-    <?php //echo Configure::version(); ?>
-    <div class="col-md-6">
-        <h4>-カテゴリー-</h4>
-        <?php
+    <?php echo $this->Html->script('script.js'); ?>
+    <?php echo $this->Html->script('modal'); ?>
+
+    <h2><?php echo __('記事一覧'); ?></h2>
+    <?php
+    //echo $this->Time->format('2011-08-22 11:53:00', '%B %e, %Y %H:%M %p');
+    //echo $date->format('Y-m-d H:i:s');
+    // echo $a = $this->Session->read('Auth.User.username');
+    // // echo $this->Auth->user('id');
+    // // debug($this->Auth->user());
+    // debug($this->Session->read('Auth.User.id'));//['Auth']));
+    // echo "aaaa";
+     ?>
+
+     <p><?php echo $this->Paginator->counter(array('format' => ('ページ {:page}/{:pages}')));?></p>
+     <ul class="page">
+         <li><?php echo $this->Paginator->first('<<' , array()); ?></li>
+         <li><?php echo $this->Paginator->prev('<', array(), null, array('class' => 'prev disabled')); ?></li>
+         <li><?php echo $this->Paginator->numbers(array('separator' => '')); ?></li>
+         <li><?php echo $this->Paginator->next('>', array(), null, array('class' => 'next disabled')); ?></li>
+         <li><?php echo $this->Paginator->last('>>', array()); ?></li>
+     </ul>
+
+    <div class="col-md-5 category">
+        <h4 class="category_content">カテゴリー</h4>
+        <div class="content"><?php
             echo $this->Form->input('category', array(
             'multiple' => 'checkbox',
             'options' => $category_id,
             ));
-        ?>
+        ?></div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4 category">
         <h4>評価指数</h4>
         <?php
             echo $this->Form->input('evaluation', array(
@@ -27,7 +49,7 @@
         ?>
     </div>
 
-    <?php echo $this->Form->end(__('Submit'));?>
+    <?php echo $this->Form->end(__('検索'));?>
 
     <table cellpadding="0" cellspacing="0">
         <div class="container">
@@ -40,123 +62,86 @@
             </table>
         </div>
 
-    <tbody>
-    <div class="container">
-    <div class="row">
-    <?php //foreach ($articles as $article): ?>
-    <?php foreach ($selected_article as $article): ?>
-        <!-- 記事ひとまとまり -->
-        <div class="col-md-6">
-            <div class="article_chunk">
-            <table ~~~ class="table-layout:fixed;width:100%;">
-                <tr>
-                    <td><?php echo h($article['Article']['id']); ?>&nbsp;</td>
-                    <td>
-                        <?php echo $this->Html->link(
-                            $article['User']['username'],
-                             array(
-                                'controller' => 'users',
-                                'action' => 'view',
-                                $article['User']['id']
-                            )
-                        ); ?>
-                    </td>
-                    <td>
-                        <?php echo $this->Html->link(
-                            $article['Product']['name'],
-                            array(
-                                'controller' => 'products',
-                                'action' => 'view',
-                                $article['Product']['id']
-                            )
-                        ); ?>
-                    </td>
+        <tbody>
+            <div class="container">
+                <div class="row">
+                    <?php foreach ($selected_article as $article): ?>
+                        <!-- 記事ひとまとまり -->
+                        <div class="col-md-6 article_chunk">
+                            <!-- 記事の画像表示 -->
+                            <?php
+                            $article_id = $article['Article']['id'];
+                            $id = "/img/" . $article_id . ".jpg" ;
 
-                </tr>
-                <tr>
-                    <!-- 記事の画像表示 -->
-                    <td><?php
-                    $article_id = $article['Article']['id'];
-                    $id = "/img/" . $article_id . ".jpg" ;
+                            // コピー元画像の指定
+                            $path = WWW_ROOT . "upimg/" . $article_id  . ".jpg";
+                            //出力先のファイル
+                            $file = WWW_ROOT . "img/" . $article_id  . ".jpg";
 
-                    // コピー元画像の指定
-                    $path = WWW_ROOT . "upimg/" . $article_id  . ".jpg";
-                    //出力先のファイル
-                    $file = WWW_ROOT . "img/" . $article_id  . ".jpg";
+                            // ファイル名から、画像インスタンスを生成
+                            $in = imagecreatefromjpeg($path);
+                            //元画像サイズ取得
+                            $size = GetImageSize($path);
+                            $width = 200;
+                            $height = 200;
+                            //サイズを指定した背景画像を生成
+                            $out = ImageCreateTrueColor($width, $height);
+                            //サイズ変更・コピー
+                            ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
+                            //画像保存
+                            imagejpeg($out, $file ,100);
 
-                    // ファイル名から、画像インスタンスを生成
-                    $in = imagecreatefromjpeg($path);
-                    //元画像サイズ取得
-                    $size = GetImageSize($path);
-                    $width = 200;
-                    $height = 200;
-                    //サイズを指定した背景画像を生成
-                    $out = ImageCreateTrueColor($width, $height);
-                    //サイズ変更・コピー
-                    ImageCopyResampled($out, $in, 0, 0, 0, 0, $width, $height, $size[0], $size[1]);
-                    //画像保存
-                    imagejpeg($out, $file ,100);
+                            $temp = WWW_ROOT;
+                            $temp = $temp . "img/". $article_id .".jpg";
+                            // $img_path = "img/" . $article_id . ".jpg";
+                            //サーバーの画像を持ってきているので本番環境では上手くいくはず
+                            $img_path = "http://ecitemreview.main.jp/ecitem_review/img/" . $article_id . ".jpg";
+                            ?>
 
-                    echo $this->Html->image($id, array('alt' => 'item'));
+                            <a href=<?=$img_path?> class="icon">
+                            <?php
+                            // 記事の商品画像表示
+                            echo $this->Html->image($id, array('alt' => 'item'));
+                            ?>
+                            </a>
 
-                    ImageDestroy($in);
-                    ImageDestroy($out);
-                    ?> </td>
+                            <?php
+                            ImageDestroy($in);
+                            ImageDestroy($out);
+                            ?>
 
-                </tr>
-                <tr>
-
-                    <td><?php echo h($article['Article']['evaluation']); ?>&nbsp;</td>
-                    <td class="actions">
-                        <button type="button" class="btn btn-success">
-                        <?php echo $this->Html->link(__('View'), array('action' => 'view', $article['Article']['id'])); ?>
-                        </button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        </div>
-    <?php endforeach; ?>
-    </div>
-    </div>
-    </tbody>
+                            <div class="info">
+                                <p><?php echo "記事ID" . h($article['Article']['id']); ?></p>
+                                <p><?php echo "評価" . h($article['Article']['evaluation']); ?>&nbsp;</p>
+                                <!-- &nbsp;</td> -->
+                                <p><?php echo $this->Html->link(
+                                    $article['User']['username'],
+                                    array(
+                                        'controller' => 'users',
+                                        'action' => 'view',
+                                        $article['User']['id']
+                                    )
+                                ); ?></p>
+                                <p><?php echo $this->Html->link(
+                                        $article['Product']['name'],
+                                        array(
+                                            'controller' => 'products',
+                                            'action' => 'view',
+                                            $article['Product']['id']
+                                        )
+                                    ); ?>
+                                </p>
+                                <p class="actions">
+                                    <!-- <button type="button" class="btn btn-success"> -->
+                                    <button type="button" class="btn btn-success">
+                                        <?php echo $this->Html->link(__('詳細'), array('action' => 'view', $article['Article']['id'])); ?>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </tbody>
     </table>
-    <p><?php
-
-     echo $this->Paginator->counter(array(
-         'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-     ));
-
-    echo $this->Paginator->counter(array(
-        'format' => __('ページ {:page}/{:pages}')
-    ));
-
-    ?></p>
-    <div class="paging">
-    <?php
-        echo $this->Paginator->first('最初のページへ' , array());
-        echo $this->Paginator->prev('戻る', array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next('進む', array(), null, array('class' => 'next disabled'));
-        echo $this->Paginator->last('最後のページへ', array());
-    ?>
-    </div>
-
-    <div>
-        <?php
-
-        ?>
-    </div>
-</div>
-<div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('New Article'), array('action' => 'add')); ?></li>
-        <li><?php echo $this->Html->link(__('UsersLogin'), array('controller' => 'users', 'action' => 'login')); ?> </li>
-        <li><?php echo $this->Html->link(__('UsersLogout'), array('controller' => 'users', 'action' => 'logout')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-    </ul>
 </div>

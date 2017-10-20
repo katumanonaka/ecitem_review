@@ -1,20 +1,17 @@
 <div class="companies form">
 <?php echo $this->Form->create('Company'); ?>
     <fieldset>
-        <legend><?php echo __('Add Company'); ?></legend>
+        <legend><?php echo __('企業追加'); ?></legend>
     <?php
         echo $this->Form->input('name');
         echo $this->Form->input('url');
     ?>
     </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('追加')); ?>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-
-        <li><?php echo $this->Html->link(__('List Companies'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('企業一覧へ戻る'), array('action' => 'index')); ?></li>
     </ul>
 </div>

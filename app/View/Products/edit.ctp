@@ -1,7 +1,7 @@
 <div class="products form">
 <?php echo $this->Form->create('Product'); ?>
     <fieldset>
-        <legend><?php echo __('Edit Product'); ?></legend>
+        <legend><?php echo __('編集'); ?></legend>
     <?php
         echo $this->Form->input('id');
         echo $this->Form->input('name');
@@ -13,19 +13,11 @@
         echo $this->Form->input('how_to_use');
     ?>
     </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<?php echo $this->Form->end(__('編集')); ?>
 </div>
 <div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
+    <br>
     <ul>
-
-        <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Product.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Product.id')))); ?></li>
-        <li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?></li>
-        <li><?php echo $this->Html->link(__('List Companies'), array('controller' => 'companies', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Company'), array('controller' => 'companies', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-        <li><?php echo $this->Html->link(__('List Articles'), array('controller' => 'articles', 'action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Article'), array('controller' => 'articles', 'action' => 'add')); ?> </li>
+        <li><?php echo $this->Html->link(__('商品一覧へ戻る'), array('action' => 'index')); ?></li>
     </ul>
 </div>

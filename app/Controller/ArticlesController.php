@@ -22,7 +22,7 @@ class ArticlesController extends AppController {
     );
 
     public $paginate = array(
-        'limit' => 6,
+        'limit' => 10,
         'order' => array('Article.id' => 'desc'),
         'conditions' => array('Article.id <' => 15)
     );
@@ -42,22 +42,22 @@ class ArticlesController extends AppController {
         $categry_data = $this->Category->find('list');
 
         //選択されたカテゴリーidを取得する
-        $category_id = $this->request->data['Article']['category'];
-
+        //$category_id = $this->request->data['Article']['category'];
         //選択された評価数値を取得する
-        $evaluation_num = $this->request->data['Article']['evaluation'];
+        //$evaluation_num = $this->request->data['Article']['evaluation'];
 
         //複数選択した条件を送る、検索した記事データを取得する
         // $selected_articles = $this->Article->get_selected_articles($category_id,$evaluation_num);
 
-        $sql = $this->Article->get_selected_articles($category_id,$evaluation_num);
-        $query = [
-            'limit' => 6,
-            'extra' => [
-                'type' => $sql
-            ],
-            'order' => array('Article.id' => 'desc')
-        ];
+        //$sql = $this->Article->get_selected_articles($category_id,$evaluation_num);
+        // $query = [
+        //     'limit' => 10,
+        //     'extra' => [
+        //         'type' => $sql
+        //     ],
+        //     'order' => array('Article.id' => 'desc')
+        // ];
+
         // $this->paginate = $sql;
         // $this->set('selected_article', $this->paginate('Article'));
 
@@ -68,7 +68,7 @@ class ArticlesController extends AppController {
         //$data = $this->paginate($conditions);
         //$this->set('selected_article', $data);
 
-        $this->Paginator->settings = $query;
+        //$this->Paginator->settings = $query;
         $history_lists = $this->Paginator->paginate('Article');
 
         $this->set('selected_article', $history_lists);
@@ -108,6 +108,14 @@ class ArticlesController extends AppController {
 
         if ($this->request->is('post',array('type'=>'file','enctype' => 'multipart/form-data' ))) {
             $this->Article->create();
+            //ログイン中ユーザーのidを取得する
+            $user_id = $this->Session->read('Auth.User.id');
+            //記事データのユーザーIDにログイン中ユーザーのidを代入する
+            $this->request->data['Article']['user_id'] = $user_id;
+            // debug($user_id);
+            // debug($this->request->data('Article.user_id'));
+            // debug($this->request->data('Article'));
+            // return;
 
             //アップロードしたファイルの拡張子を取得する
             $extension = $this->request->data('Article.image.type');

@@ -51,7 +51,7 @@ class CommentsController extends AppController {
         if ($this->request->is('post')) {
             $this->Comment->create();
             if ($this->Comment->save($this->request->data)) {
-                $this->Flash->success(__('The comment has been saved.'));
+                $this->Flash->success(__(''));
                 return $this->redirect(array('controller'=>'articles' ,
                 'action' => 'view' , $this->data['Comment']['article_id']));
             } else {
@@ -105,7 +105,7 @@ class CommentsController extends AppController {
         }
         $this->request->allowMethod('post', 'delete');
         if ($this->Comment->delete()) {
-            $this->Flash->success(__('The comment has been deleted.'));
+            $this->Flash->success(__(''));
         } else {
             $this->Flash->error(__('The comment could not be deleted. Please, try again.'));
         }
